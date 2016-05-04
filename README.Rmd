@@ -6,7 +6,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
-  message = FALSE
+  message = FALSE,
+  fig.path = "inst/img/"
 )
 ```
 
@@ -28,6 +29,35 @@ devtools::install_github("ropenscilabs/ccafs")
 ```{r}
 library("ccafs")
 ```
+
+## Fetch files 
+
+Note, files are not loaded as they can be very large
+
+```{r}
+key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
+(res <- data_fetch(key = key))
+```
+
+## Load data
+
+Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
+
+```{r}
+data_read(res[1])
+```
+
+```{r}
+data_read(res[1:2])
+```
+
+## Plot
+
+```{r}
+library("raster")
+plot(data_read(res[1:3]))
+```
+
 
 ## Meta
 
