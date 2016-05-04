@@ -1,14 +1,7 @@
 ccafs
 =====
 
-```{r echo=FALSE}
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  warning = FALSE,
-  message = FALSE
-)
-```
+
 
 [![Build Status](https://travis-ci.org/ropenscilabs/ccafs.svg?branch=master)](https://travis-ci.org/ropenscilabs/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
@@ -21,11 +14,13 @@ Client for CCAFS GCM Data
 
 Development version
 
-```{r eval=FALSE}
+
+```r
 devtools::install_github("ropenscilabs/ccafs")
 ```
 
-```{r}
+
+```r
 library("ccafs")
 ```
 
