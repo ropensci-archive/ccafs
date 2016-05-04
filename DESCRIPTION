@@ -17,4 +17,5 @@ Imports:
     raster
 Suggests:
     roxygen2 (>= 5.0.1)
+Remotes: cloudyr/aws.s3
 RoxygenNote: 5.0.1
