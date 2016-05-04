@@ -1,0 +1,17 @@
+Package: ccafs
+Type: Package
+Title: Client for CCAFS GCM Data
+Description: Client for Climate Change, Agriculture, and Food Security (CCAFS)
+    General Circulation Models (GCM) data. Data is stored in Amazon S3, from
+    which we provide functions to fetch data.
+Version: 0.0.0.9000
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com")
+License: MIT + file LICENSE
+URL: https://github.com/ropenscilabs/ccafs
+BugReports: https://github.com/ropenscilabs/ccafs/issues
+Imports:
+    aws.s3 (>= 0.1.11)
+Suggests:
+    roxygen2 (>= 5.0.1)
+RoxygenNote: 5.0.1
