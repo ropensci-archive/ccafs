@@ -11,7 +11,10 @@ License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/ccafs
 BugReports: https://github.com/ropenscilabs/ccafs/issues
 Imports:
-    aws.s3 (>= 0.1.11)
+    aws.s3 (>= 0.1.24),
+    rappdirs (>= 0.3.1),
+    httr,
+    raster
 Suggests:
     roxygen2 (>= 5.0.1)
 RoxygenNote: 5.0.1
