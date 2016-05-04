@@ -11,6 +11,7 @@ License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/ccafs
 BugReports: https://github.com/ropenscilabs/ccafs/issues
 Imports:
+    utils,
     aws.s3 (>= 0.1.24),
     rappdirs (>= 0.3.1),
     httr,

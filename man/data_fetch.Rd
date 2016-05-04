@@ -26,7 +26,9 @@ See \code{\link{data_read}}
 }
 \examples{
 \dontrun{
-key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
+key <- paste0(
+ "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/",
+ "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip")
 (res <- data_fetch(key = key))
 # indexing maintains class for easier subsetting
 res[1]
