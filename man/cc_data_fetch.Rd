@@ -7,8 +7,7 @@
 cc_data_fetch(key, overwrite = FALSE)
 }
 \arguments{
-\item{key}{A S3 object, either a character string, or a \code{s3_object}
-class}
+\item{key}{(character) a character string specifying a file}
 
 \item{overwrite}{(logical) Whether to overwrite files if they already
 exist on your machine. Default: \code{FALSE}}
@@ -22,7 +21,10 @@ Fetch data
 }
 \details{
 Note that data is not read into R as data can be very large.
-See \code{\link{cc_data_read}}
+See \code{\link{cc_data_read}}.
+
+Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
+cached and to delete any.
 }
 \examples{
 \dontrun{
@@ -34,6 +36,17 @@ key <- paste0(
 res[1]
 res[[1]]
 res[1:2]
+
+res <- cc_list_keys()
+zips <- grep("\\\\.zip", res$Key, value = TRUE)
+x <- cc_data_fetch(zips[1])
+unclass(x)
+cc_data_read(x[1])
+cc_data_read(x[1:3])
+cc_data_read(x)
+plot(cc_data_read(x[1]))
+plot(cc_data_read(x[1:3]))
+plot(cc_data_read(x))
 }
 }
 

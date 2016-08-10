@@ -1,12 +1,15 @@
 #' Fetch data
 #'
 #' @export
-#' @param key A S3 object, either a character string, or a \code{s3_object}
-#' class
+#' @param key (character) a character string specifying a file
 #' @param overwrite (logical) Whether to overwrite files if they already
 #' exist on your machine. Default: \code{FALSE}
+#'
 #' @details Note that data is not read into R as data can be very large.
-#' See \code{\link{cc_data_read}}
+#' See \code{\link{cc_data_read}}.
+#'
+#' Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
+#' cached and to delete any.
 #' @return A character vector of full file paths. A print method makes a tidy
 #' return object
 #' @examples \dontrun{
@@ -18,6 +21,17 @@
 #' res[1]
 #' res[[1]]
 #' res[1:2]
+#'
+#' res <- cc_list_keys()
+#' zips <- grep("\\.zip", res$Key, value = TRUE)
+#' x <- cc_data_fetch(zips[1])
+#' unclass(x)
+#' cc_data_read(x[1])
+#' cc_data_read(x[1:3])
+#' cc_data_read(x)
+#' plot(cc_data_read(x[1]))
+#' plot(cc_data_read(x[1:3]))
+#' plot(cc_data_read(x))
 #' }
 cc_data_fetch <- function(key, overwrite = FALSE) {
   res <- cache_data(key, cache = TRUE, overwrite = overwrite)
