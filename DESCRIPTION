@@ -19,5 +19,6 @@ Imports:
     xml2 (>= 1.0.0),
     data.table (>= 1.9.6)
 Suggests:
-    roxygen2 (>= 5.0.1)
+    roxygen2 (>= 5.0.1),
+    testthat
 RoxygenNote: 5.0.1

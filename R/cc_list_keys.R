@@ -1,11 +1,12 @@
 #' List S3 keys
 #'
 #' @export
-#' @param prefix Character string that limits the response to keys that begin
+#' @param prefix (character) string that limits the response to keys that begin
 #' with the specified prefix
-#' @param delimiter Character string used to group keys.  Read the AWS doc for more detail.
-#' @param max Integer indicating the maximum number of keys to return (max 1000).
-#' @param marker Character string that pecifies the key to start with when
+#' @param delimiter (character) string used to group keys.  Read the AWS doc
+#' for more detail.
+#' @param max (integer) number indicating the maximum number of keys to return (max 1000).
+#' @param marker (character) string that pecifies the key to start with when
 #' listing objects in a bucket. Amazon S3 returns object keys in alphabetical order,
 #' starting with key after the marker in order.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
