@@ -31,7 +31,7 @@ Note, files are not loaded as they can be very large
 
 ```r
 key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
-(res <- data_fetch(key = key))
+(res <- cc_data_fetch(key = key))
 #> <CCAFS GCM files>
 #>    13 files
 #>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
@@ -46,7 +46,7 @@ Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
 
 
 ```r
-data_read(res[1])
+cc_data_read(res[1])
 #> class       : RasterLayer 
 #> dimensions  : 900, 2160, 1944000  (nrow, ncol, ncell)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
@@ -59,7 +59,7 @@ data_read(res[1])
 
 
 ```r
-data_read(res[1:2])
+cc_data_read(res[1:2])
 #> class       : RasterBrick 
 #> dimensions  : 900, 2160, 1944000, 2  (nrow, ncol, ncell, nlayers)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
@@ -76,7 +76,7 @@ data_read(res[1:2])
 
 ```r
 library("raster")
-plot(data_read(res[1:3]))
+plot(cc_data_read(res[1:3]))
 ```
 
 ![plot of chunk unnamed-chunk-7](inst/img/unnamed-chunk-7-1.png)

@@ -6,20 +6,20 @@
 #' @param overwrite (logical) Whether to overwrite files if they already
 #' exist on your machine. Default: \code{FALSE}
 #' @details Note that data is not read into R as data can be very large.
-#' See \code{\link{data_read}}
+#' See \code{\link{cc_data_read}}
 #' @return A character vector of full file paths. A print method makes a tidy
 #' return object
 #' @examples \dontrun{
 #' key <- paste0(
 #'  "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/",
 #'  "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip")
-#' (res <- data_fetch(key = key))
+#' (res <- cc_data_fetch(key = key))
 #' # indexing maintains class for easier subsetting
 #' res[1]
 #' res[[1]]
 #' res[1:2]
 #' }
-data_fetch <- function(key, overwrite = FALSE) {
+cc_data_fetch <- function(key, overwrite = FALSE) {
   res <- cache_data(key, cache = TRUE, overwrite = overwrite)
   structure(res, class = "ccafs_files")
 }

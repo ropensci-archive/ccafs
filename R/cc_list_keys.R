@@ -11,12 +11,12 @@
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A tibble (a data.frame, basically)
 #' @examples \dontrun{
-#' list_keys()
-#' list_keys(max = 10)
-#' list_keys(max = 1)
-#' list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")
+#' cc_list_keys()
+#' cc_list_keys(max = 10)
+#' cc_list_keys(max = 1)
+#' cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")
 #' }
-list_keys <- function(prefix = NULL, delimiter = NULL, max = 1000,
+cc_list_keys <- function(prefix = NULL, delimiter = NULL, max = 1000,
                       marker = NULL, ...) {
   args <- cp(list(`max-keys` = max, marker = marker, prefix = prefix, delimiter = delimiter))
   tmp <- parsxml(cc_GET(ccafs_base(), query = args, ...))

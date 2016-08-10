@@ -1,46 +1,46 @@
 #' Reaa data into R
 #'
 #' @export
-#' @param x A \code{ccafs_files} object, the output from a call to \code{\link{data_fetch}}
+#' @param x A \code{ccafs_files} object, the output from a call to \code{\link{cc_data_fetch}}
 #' @return \code{RasterLayer} or \code{RasterBrick} class object
 #' @examples \dontrun{
 #' key <- paste0(
 #'  "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/",
 #'  "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip")
-#' res <- data_fetch(key = key)
+#' res <- cc_data_fetch(key = key)
 #'
 #' # a single file
-#' data_read(res[1])
+#' cc_data_read(res[1])
 #'
 #' # select individual files
-#' data_read(res[1:2])
+#' cc_data_read(res[1:2])
 #'
 #' # all files
-#' data_read(res)
+#' cc_data_read(res)
 #'
 #' # character path input
 #' ## you can also pass in a path to a file(s)
-#' data_read(unclass(res[1]))
+#' cc_data_read(unclass(res[1]))
 #'
 #' # plot data
-#' plot(data_read(res[1:3]))
+#' plot(cc_data_read(res[1:3]))
 #' }
-data_read <- function(x) {
-  UseMethod("data_read")
+cc_data_read <- function(x) {
+  UseMethod("cc_data_read")
 }
 
 #' @export
-data_read.default <- function(x) {
-  stop("no 'data_read' method for class ", class(x), call. = FALSE)
+cc_data_read.default <- function(x) {
+  stop("no 'cc_data_read' method for class ", class(x), call. = FALSE)
 }
 
 #' @export
-data_read.ccafs_files <- function(x) {
-  data_read(unclass(x))
+cc_data_read.ccafs_files <- function(x) {
+  cc_data_read(unclass(x))
 }
 
 #' @export
-data_read.character <- function(x) {
+cc_data_read.character <- function(x) {
   drop_non_readable(x)
   if (length(x) == 1) {
     raster(x)
