@@ -5,7 +5,7 @@
 \title{List S3 keys}
 \usage{
 list_keys(prefix = NULL, delimiter = NULL, max = 1000, marker = NULL,
-  parse_response = TRUE, ...)
+  ...)
 }
 \arguments{
 \item{prefix}{Character string that limits the response to keys that begin
@@ -19,12 +19,10 @@ with the specified prefix}
 listing objects in a bucket. Amazon S3 returns object keys in alphabetical order,
 starting with key after the marker in order.}
 
-\item{parse_response}{logical, should we attempt to parse the response?}
-
-\item{...}{Curl options.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A \code{s3_object} class (a list, basically)
+A tibble (a data.frame, basically)
 }
 \description{
 List S3 keys
