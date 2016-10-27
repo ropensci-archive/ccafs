@@ -43,7 +43,7 @@ cc_data_fetch <- function(key, overwrite = FALSE) {
 print.ccafs_files <- function(x, ...) {
   cat("<CCAFS GCM files>", sep = "\n")
   cat(sprintf("   %s files", length(x)), sep = "\n")
-  cat(paste0("   Base dir: ", dirname(sub(user_cache_dir("ccafs"), "", x[1]))), sep = "\n")
+  cat(paste0("   Base dir: ", dirname(sub(cc_cache_path(), "", x[1]))), sep = "\n")
   files <- basename(x)
   ftypes <- unique(strextract(files, "\\..+"))
   cat("   File types (count): ", sep = "\n")

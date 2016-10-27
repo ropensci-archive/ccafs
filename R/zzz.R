@@ -20,7 +20,10 @@ cc_GET <- function(url, ...) {
 
 cc_GETw <- function(url, path, overwrite = TRUE, ...) {
   x <- GET(url, write_disk(path, overwrite = overwrite), progress(), ...)
-  stop_for_status(x)
+  if (x$status_code > 201) {
+    unlink(path)
+    stop(httr::http_status(x)$message, call. = FALSE)
+  }
   x
 }
 

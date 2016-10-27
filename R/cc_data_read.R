@@ -45,6 +45,7 @@ cc_data_read.ccafs_files <- function(x) {
 
 #' @export
 cc_data_read.character <- function(x) {
+  if (!all(file.exists(x))) stop("one or more files don't exist", call. = FALSE)
   drop_non_readable(x)
   if (length(x) == 1) {
     raster(x)

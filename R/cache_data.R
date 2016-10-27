@@ -8,7 +8,7 @@ cache_data <- function(key, cache = TRUE, overwrite = FALSE) {
   file <- file.path(cache_dir, basename(key))
 
   if (!file.exists(file)) {
-    cc_GETw(make_url(key), file, overwrite)
+    invisible(cc_GETw(url = make_url(key), path = file, overwrite))
   }
 
   outdir <- file.path(cache_dir, sub("\\.zip", "", basename(key)))

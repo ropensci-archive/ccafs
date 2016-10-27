@@ -45,7 +45,7 @@
 #' @export
 #' @rdname cc_cache
 cc_cache_list <- function() {
-  list.files(cc_cache_path(), ignore.case = TRUE,
+  list.files(cc_cache_path(), ignore.case = TRUE, include.dirs = TRUE,
              recursive = TRUE, full.names = TRUE)
 }
 
@@ -62,7 +62,7 @@ cc_cache_delete <- function(files, force = TRUE) {
 #' @export
 #' @rdname cc_cache
 cc_cache_delete_all <- function(force = TRUE) {
-  files <- list.files(cc_cache_path(), ignore.case = TRUE,
+  files <- list.files(cc_cache_path(), ignore.case = TRUE, include.dirs = TRUE,
                       full.names = TRUE, recursive = TRUE)
   unlink(files, force = force, recursive = TRUE)
 }
@@ -71,7 +71,7 @@ cc_cache_delete_all <- function(force = TRUE) {
 #' @rdname cc_cache
 cc_cache_details <- function(files = NULL) {
   if (is.null(files)) {
-    files <- list.files(cc_cache_path(), ignore.case = TRUE,
+    files <- list.files(cc_cache_path(), ignore.case = TRUE, include.dirs = TRUE,
                         full.names = TRUE, recursive = TRUE)
     structure(lapply(files, file_info_), class = "ccafs_cache_info")
   } else {

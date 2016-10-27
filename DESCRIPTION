@@ -20,5 +20,7 @@ Imports:
 Suggests:
     roxygen2 (>= 5.0.1),
     testthat,
-    covr
+    covr,
+    knitr
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1
