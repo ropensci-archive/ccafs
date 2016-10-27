@@ -4,9 +4,9 @@
 \name{ccafs-package}
 \alias{ccafs}
 \alias{ccafs-package}
-\title{ccafs}
+\title{Client for CCAFS GCM Data}
 \description{
-ccafs
+Client for CCAFS GCM Data
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

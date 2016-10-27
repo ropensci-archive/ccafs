@@ -1,4 +1,4 @@
-#' ccafs
+#' Client for CCAFS GCM Data
 #'
 #' @importFrom rappdirs user_cache_dir
 #' @importFrom httr GET stop_for_status write_disk progress content

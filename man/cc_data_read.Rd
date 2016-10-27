@@ -7,7 +7,8 @@
 cc_data_read(x)
 }
 \arguments{
-\item{x}{A \code{ccafs_files} object, the output from a call to \code{\link{cc_data_fetch}}}
+\item{x}{A \code{ccafs_files} object, the output from a call to
+\code{\link{cc_data_fetch}}}
 }
 \value{
 \code{RasterLayer} or \code{RasterBrick} class object
@@ -21,9 +22,10 @@ cached and to delete any.
 }
 \examples{
 \dontrun{
-key <- paste0(
- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/",
- "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip")
+key <- sub("\\n|\\\\s+", "", paste0(
+ "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
+ 2030s/bcc_csm1_1_m/10min/",
+ "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"))
 res <- cc_data_fetch(key = key)
 
 # a single file

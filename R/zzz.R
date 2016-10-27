@@ -40,3 +40,5 @@ parsxml <- function(x) {
 flat_list <- function(z) {
   Map(function(x) as.list(unlist(x)), z)
 }
+
+cc_cache_path <- function() rappdirs::user_cache_dir("ccafs")

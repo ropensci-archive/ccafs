@@ -8,14 +8,15 @@ cc_list_keys(prefix = NULL, delimiter = NULL, max = 1000, marker = NULL,
   ...)
 }
 \arguments{
-\item{prefix}{Character string that limits the response to keys that begin
+\item{prefix}{(character) string that limits the response to keys that begin
 with the specified prefix}
 
-\item{delimiter}{Character string used to group keys.  Read the AWS doc for more detail.}
+\item{delimiter}{(character) string used to group keys.  Read the AWS doc
+for more detail.}
 
-\item{max}{Integer indicating the maximum number of keys to return (max 1000).}
+\item{max}{(integer) number indicating the maximum number of keys to return (max 1000).}
 
-\item{marker}{Character string that pecifies the key to start with when
+\item{marker}{(character) string that pecifies the key to start with when
 listing objects in a bucket. Amazon S3 returns object keys in alphabetical order,
 starting with key after the marker in order.}
 
