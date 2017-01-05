@@ -14,11 +14,12 @@ with the specified prefix}
 \item{delimiter}{(character) string used to group keys.  Read the AWS doc
 for more detail.}
 
-\item{max}{(integer) number indicating the maximum number of keys to return (max 1000).}
+\item{max}{(integer) number indicating the maximum number of keys to return
+(max 1000).}
 
-\item{marker}{(character) string that pecifies the key to start with when
-listing objects in a bucket. Amazon S3 returns object keys in alphabetical order,
-starting with key after the marker in order.}
+\item{marker}{(character) string that specifies the key to start with when
+listing objects in a bucket. Amazon S3 returns object keys in alphabetical
+order, starting with key after the marker in order.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

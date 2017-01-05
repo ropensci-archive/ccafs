@@ -2,7 +2,7 @@
 % Please edit documentation in R/cc_data_read.R
 \name{cc_data_read}
 \alias{cc_data_read}
-\title{Reaa CCAFS data into R}
+\title{Read CCAFS data into R}
 \usage{
 cc_data_read(x)
 }
@@ -14,11 +14,11 @@ cc_data_read(x)
 \code{RasterLayer} or \code{RasterBrick} class object
 }
 \description{
-Reaa CCAFS data into R
+Read CCAFS data into R
 }
 \details{
-Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
-cached and to delete any.
+Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
+are cached and to delete any.
 }
 \examples{
 \dontrun{

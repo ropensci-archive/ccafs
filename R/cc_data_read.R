@@ -1,11 +1,11 @@
-#' Reaa CCAFS data into R
+#' Read CCAFS data into R
 #'
 #' @export
 #' @param x A \code{ccafs_files} object, the output from a call to
 #' \code{\link{cc_data_fetch}}
 #' @return \code{RasterLayer} or \code{RasterBrick} class object
-#' @details Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
-#' cached and to delete any.
+#' @details Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
+#' are cached and to delete any.
 #' @examples \dontrun{
 #' key <- sub("\n|\\s+", "", paste0(
 #'  "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
