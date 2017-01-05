@@ -3,14 +3,49 @@ ccafs
 
 
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 [![Build Status](https://travis-ci.org/ropenscilabs/ccafs.svg?branch=master)](https://travis-ci.org/ropenscilabs/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
 
-Client for CCAFS GCM Data
+R client for Climate Change, Agriculture, and Food Security (CCAFS) 
+General Circulation Models (GCM) data. 
 
-[CCAFS GCM Data is on S3: root path](http://cgiardata.s3.amazonaws.com)
+## About CCAFS
+
+CCAFS website: <http://ccafs-climate.org/>
+
+CCAFS GCM data for this package comes from Amazon S3 
+[root path](http://cgiardata.s3.amazonaws.com). Amazon S3 stands for "Simple 
+Storage Service" - it's like a file system, and they give you links to the files 
+and metadata around those links.
+
+CCAFS data can be used for studying climate change, and how climate impacts
+various aspects of the earth. Search google scholar with `"CCAFS" "GCM"` to 
+see example uses.
+
+As far as I can tell, CCAFS GCM data comes from IPCC data.
+
+## About the package
+
+`ccafs` is a client to work with the data CCAFS provides via Amazon Web 
+Services S3 data. 
+
+Currently, we don't provide a way to search for what data is available. 
+You have to know what you want, or you can list what is available, and then 
+pick files from the list. Though there's not a lot of information in the 
+metadata returned from S3. 
+
+We'll work on incorporating a way to search - currently there is no solution.
 
 ## Install
+
+CRAN version
+
+
+```r
+install.packages("ccafs")
+```
 
 Development version
 
@@ -33,11 +68,10 @@ Note, files are not loaded as they can be very large
 key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
 (res <- cc_data_fetch(key = key))
 #> <CCAFS GCM files>
-#>    13 files
+#>    12 files
 #>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
 #>    File types (count): 
 #>      - .asc: 12
-#>      - .asc.aux.xml: 1
 ```
 
 ## Load data
@@ -79,7 +113,7 @@ library("raster")
 plot(cc_data_read(res[1:3]))
 ```
 
-![plot of chunk unnamed-chunk-7](inst/img/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](inst/img/unnamed-chunk-8-1.png)
 
 
 ## Meta
@@ -89,4 +123,4 @@ plot(cc_data_read(res[1:3]))
 * Get citation information for `ccafs` in R doing `citation(package = 'ccafs')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![rofooter](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
