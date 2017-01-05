@@ -45,6 +45,8 @@ unclass(x)
 cc_data_read(x[1])
 cc_data_read(x[1:3])
 cc_data_read(x)
+
+library(raster)
 plot(cc_data_read(x[1]))
 plot(cc_data_read(x[1:3]))
 plot(cc_data_read(x))
