@@ -80,7 +80,12 @@ cc_cache_details <- function(files = NULL) {
 }
 
 file_info_ <- function(x) {
-  fs <- file.size(x)
+  if (file.exists(x)) {
+    fs <- file.size(x)
+  } else {
+    fs <- type <- NA
+    x <- paste0(x, " - does not exist")
+  }
   list(file = x,
        type = "tif",
        size = if (!is.na(fs)) getsize(fs) else NA
@@ -97,7 +102,7 @@ print.ccafs_cache_info <- function(x, ...) {
   cat(sprintf("  directory: %s\n", cc_cache_path()), sep = "\n")
   for (i in seq_along(x)) {
     cat(paste0("  file: ", sub(cc_cache_path(), "", x[[i]]$file)), sep = "\n")
-    cat(paste0("  size: ", x[[i]]$size, " mb"), sep = "\n")
+    cat(paste0("  size: ", x[[i]]$size, if (is.na(x[[i]]$size)) "" else " mb"), sep = "\n")
     cat("\n")
   }
 }
