@@ -22,15 +22,30 @@ General Circulation Models (GCM) data.
 CCAFS website: <http://ccafs-climate.org/>
 
 CCAFS GCM data for this package comes from Amazon S3
-\url{http://cgiardata.s3.amazonaws.com} . Amazon S3 stands for "Simple
-Storage Service" - it's like a file system, and they give you links to
-the files and metadata around those links.
+\url{http://cgiardata.s3.amazonaws.com}. More about Amazon S3 below.
 
 CCAFS data can be used for studying climate change, and how climate
 impacts various aspects of the earth. Search google scholar with
 `"CCAFS" "GCM"` to see example uses.
 
 As far as I can tell, CCAFS GCM data comes from IPCC data.
+}
+
+\section{About Amazon S3}{
+
+Amazon S3 stands for "Simple Storage Service" - it's like a file system,
+and they give you links to the files and metadata around those links.
+
+S3 is split up into buckets, essentially folder. All CCAFS data is in
+one bucket. Within the CCAFS bucket on S3 are a series of nested folders.
+To get to various files we need to navigate down the tree of folders.
+Keys are file paths with all their parent folders, e.g., "/foo/bar/1/2".
+Unfortunately, there's no meaningful search of the CCCAFS data as they
+have on their website \url{http://ccafs-climate.org/}. However, you can
+set a prefix for a search of these keys, e.g., "/foo/bar" for the key
+above.
+
+Check out \url{https://aws.amazon.com/s3/} for more info.
 }
 
 \section{About the package}{
