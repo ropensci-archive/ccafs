@@ -23,6 +23,9 @@ are cached and to delete any.
 
 \code{\link{cc_data_fetch}} downloads data to your machine, and this
 function reads the data into your R session.
+
+For more control over vizualizations of raster data, check out the
+\code{rasterVis} package (https://CRAN.R-project.org/package=rasterVis)
 }
 \examples{
 \dontrun{

@@ -138,3 +138,6 @@ cc_data_read(res)
 library("raster")
 plot(cc_data_read(res[1:6]))
 ```
+
+For more control over vizualizations of raster data, check out the 
+[rasterVis](https://CRAN.R-project.org/package=rasterVis) package.

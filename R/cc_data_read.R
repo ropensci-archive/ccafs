@@ -10,6 +10,9 @@
 #'
 #' \code{\link{cc_data_fetch}} downloads data to your machine, and this
 #' function reads the data into your R session.
+#'
+#' For more control over vizualizations of raster data, check out the
+#' \code{rasterVis} package (https://CRAN.R-project.org/package=rasterVis)
 #' @examples \dontrun{
 #' key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
 #'  2030s/bcc_csm1_1_m/10min/
