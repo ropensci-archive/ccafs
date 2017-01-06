@@ -60,6 +60,17 @@ Key prefix
 cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")
 ```
 
+You can find certain files easily. Here, we'll find zip files
+
+```{r}
+res <- cc_list_keys()
+zips <- grep("\\.zip", res$Key, value = TRUE)
+zips[1:5]
+```
+
+Which you can use below to fetch data from.
+
+
 ## Fetch some data
 
 ```{r}
@@ -75,6 +86,14 @@ key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
 ```{r eval=FALSE}
 (res <- cc_data_fetch(key = key))
 ```
+
+Using the above set of zips, fetch some data:
+
+```{r}
+x <- cc_data_fetch(zips[1])
+cc_data_read(x[1])
+```
+
 
 ### Caching
 
