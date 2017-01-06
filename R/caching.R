@@ -1,4 +1,4 @@
-#' Manage cached files
+#' Manage cached CCAFS files
 #'
 #' @export
 #' @name cc_cache
@@ -10,7 +10,7 @@
 #' For deleting many specific files,
 #' use \code{cache_delete} in a \code{\link{lapply}} type call
 #'
-#' @details We cache using \code{\link[rappdirs]{user_cache_dir}}, find your
+#' We cache using \code{\link[rappdirs]{user_cache_dir}}, find your
 #' cache folder by executing \code{rappdirs::user_cache_dir("ccafs")}
 #'
 #' @section Functions:
@@ -102,7 +102,8 @@ print.ccafs_cache_info <- function(x, ...) {
   cat(sprintf("  directory: %s\n", cc_cache_path()), sep = "\n")
   for (i in seq_along(x)) {
     cat(paste0("  file: ", sub(cc_cache_path(), "", x[[i]]$file)), sep = "\n")
-    cat(paste0("  size: ", x[[i]]$size, if (is.na(x[[i]]$size)) "" else " mb"), sep = "\n")
+    cat(paste0("  size: ", x[[i]]$size, if (is.na(x[[i]]$size)) "" else " mb"),
+        sep = "\n")
     cat("\n")
   }
 }

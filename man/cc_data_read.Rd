@@ -2,7 +2,7 @@
 % Please edit documentation in R/cc_data_read.R
 \name{cc_data_read}
 \alias{cc_data_read}
-\title{Read CCAFS data into R}
+\title{Read CCAFS data}
 \usage{
 cc_data_read(x)
 }
@@ -11,14 +11,18 @@ cc_data_read(x)
 \code{\link{cc_data_fetch}}}
 }
 \value{
-\code{RasterLayer} or \code{RasterBrick} class object
+\code{RasterLayer} or \code{RasterBrick} class object. See their
+help files in \code{raster} package documentation.
 }
 \description{
-Read CCAFS data into R
+Read CCAFS data
 }
 \details{
 Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
 are cached and to delete any.
+
+\code{\link{cc_data_fetch}} downloads data to your machine, and this
+function reads the data into your R session.
 }
 \examples{
 \dontrun{

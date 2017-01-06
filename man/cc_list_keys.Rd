@@ -26,10 +26,24 @@ order, starting with key after the marker in order.}
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A tibble (a data.frame, basically)
+A tibble (a data.frame, basically), with the columms:
+\itemize{
+ \item Key - object key
+ \item LastModified - Object creation date or the last modified date, whichever is the latest.
+ \item ETag - "entity tag", used for cache validation
+ \item Size - Size of the object, in bytes, divide by 10^6 to get
+ mb (megabytes)
+ \item StorageClass - ignore, just useful for CCAFS maintainers
+}
 }
 \description{
 List CCAFS keys
+}
+\details{
+This function lists keys from the CCAFS Amazon S3 bucket.
+Keys are essentially file paths. You can request data from any key that is
+a file (with a file extension, and has size > 0). Other keys are
+directories.
 }
 \examples{
 \dontrun{

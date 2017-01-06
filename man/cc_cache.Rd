@@ -6,7 +6,7 @@
 \alias{cc_cache_delete_all}
 \alias{cc_cache_details}
 \alias{cc_cache_list}
-\title{Manage cached files}
+\title{Manage cached CCAFS files}
 \usage{
 cc_cache_list()
 
@@ -22,7 +22,7 @@ cc_cache_details(files = NULL)
 \item{force}{(logical) Should files be force deleted? Default: \code{TRUE}}
 }
 \description{
-Manage cached files
+Manage cached CCAFS files
 }
 \details{
 \code{cache_delete} only accepts 1 file name, while

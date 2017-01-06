@@ -1,4 +1,4 @@
-#' Fetch data
+#' Download CCAFS data
 #'
 #' @export
 #' @param key (character) a character string specifying a file. the key
@@ -16,8 +16,12 @@
 #' Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
 #' cached and to delete any.
 #'
+#' Note that we've made it so that you can index into the return object,
+#' getting either one or many results and the S3 class will be retained,
+#' so that you can pass the result down to \code{\link{cc_data_read}}.
+#'
 #' @return A character vector of full file paths. A print method makes a tidy
-#' return object
+#' return object in an S3 class.
 #'
 #' @examples \dontrun{
 #' key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cc_data_fetch.R
 \name{cc_data_fetch}
 \alias{cc_data_fetch}
-\title{Fetch data}
+\title{Download CCAFS data}
 \usage{
 cc_data_fetch(key, overwrite = FALSE, progress = TRUE, ...)
 }
@@ -21,10 +21,10 @@ Default: \code{TRUE}}
 }
 \value{
 A character vector of full file paths. A print method makes a tidy
-return object
+return object in an S3 class.
 }
 \description{
-Fetch data
+Download CCAFS data
 }
 \details{
 Note that data is not read into R as data can be very large.
@@ -32,6 +32,10 @@ See \code{\link{cc_data_read}}.
 
 Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
 cached and to delete any.
+
+Note that we've made it so that you can index into the return object,
+getting either one or many results and the S3 class will be retained,
+so that you can pass the result down to \code{\link{cc_data_read}}.
 }
 \examples{
 \dontrun{
