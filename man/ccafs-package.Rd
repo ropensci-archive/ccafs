@@ -62,6 +62,13 @@ We'll work on incorporating a way to search - currently there is no
 solution.
 }
 
+\section{raster}{
+
+The main useful output are `raster` package objects of class
+\code{RasterLayer} or \code{RasterBrick} - so in general have \code{raster}
+loaded in your session to maximize happiness.
+}
+
 \section{Citations}{
 
 Cite CCAFS data following their guidelines at

@@ -69,6 +69,11 @@ Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
 Get a citation for this package like `citation(package = 'ccafs')` after 
 installing the package.
 
+## raster
+
+The main useful output are `raster` package objects of class `RasterLayer` or `RasterBrick` - so in general have `raster` loaded in your session to maximize
+happiness. 
+
 ## Install
 
 CRAN version
