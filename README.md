@@ -54,6 +54,13 @@ metadata returned from S3.
 
 We'll work on incorporating a way to search - currently there is no solution.
 
+## Citations
+
+Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
+
+Get a citation for this package like `citation(package = 'ccafs')` after 
+installing the package.
+
 ## Install
 
 CRAN version

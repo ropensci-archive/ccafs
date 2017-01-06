@@ -62,6 +62,14 @@ We'll work on incorporating a way to search - currently there is no
 solution.
 }
 
+\section{Citations}{
+
+Cite CCAFS data following their guidelines at
+\url{http://ccafs-climate.org/about/}
+
+Get a citation for this package like \code{citation(package = 'ccafs')}
+}
+
 \section{Vignette}{
 
 You can access the vignette like \code{vignette(package = "ccafs")} or

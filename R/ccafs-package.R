@@ -50,6 +50,12 @@
 #' We'll work on incorporating a way to search - currently there is no
 #' solution.
 #'
+#' @section Citations:
+#' Cite CCAFS data following their guidelines at
+#' \url{http://ccafs-climate.org/about/}
+#'
+#' Get a citation for this package like \code{citation(package = 'ccafs')}
+#'
 #' @importFrom rappdirs user_cache_dir
 #' @importFrom httr GET stop_for_status write_disk progress content
 #' @importFrom raster raster brick
