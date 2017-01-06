@@ -1,5 +1,9 @@
 #' @title Client for CCAFS GCM Data
 #'
+#' @description Client for Climate Change, Agriculture, and Food Security
+#' (CCAFS) General Circulation Models (GCM) data. Data is stored in
+#' Amazon S3, from which we provide functions to fetch data.
+#'
 #' @section About CCAFS:
 #' Client for Climate Change, Agriculture, and Food Security
 #' (CCAFS) General Circulation Models (GCM) data. Data is stored in

@@ -1,22 +1,29 @@
 #' Fetch data
 #'
 #' @export
-#' @param key (character) a character string specifying a file
+#' @param key (character) a character string specifying a file. the key
+#' can have spaces and newlines, which are removed internally - this allows
+#' keys to break across lines as keys can be very long
 #' @param overwrite (logical) Whether to overwrite files if they already
 #' exist on your machine. Default: \code{FALSE}
+#' @param progress (logical) Whether to print download progress.
+#' Default: \code{TRUE}
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #'
 #' @details Note that data is not read into R as data can be very large.
 #' See \code{\link{cc_data_read}}.
 #'
 #' Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
 #' cached and to delete any.
+#'
 #' @return A character vector of full file paths. A print method makes a tidy
 #' return object
+#'
 #' @examples \dontrun{
-#' key <- sub("\n|\\s+", "", paste0(
-#'  "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
-#'  2030s/bcc_csm1_1_m/10min/",
-#'  "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"))
+#' key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
+#'  2030s/bcc_csm1_1_m/10min/
+#'  bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
+#'
 #' (res <- cc_data_fetch(key = key))
 #' # indexing maintains class for easier subsetting
 #' res[1]
@@ -36,8 +43,9 @@
 #' plot(cc_data_read(x[1:3]))
 #' plot(cc_data_read(x))
 #' }
-cc_data_fetch <- function(key, overwrite = FALSE) {
-  res <- cache_data(key, cache = TRUE, overwrite = overwrite)
+cc_data_fetch <- function(key, overwrite = FALSE, progress = TRUE, ...) {
+  res <- cache_data(key, cache = TRUE, overwrite = overwrite,
+                    progress = progress, ...)
   structure(res, class = "ccafs_files")
 }
 
@@ -45,12 +53,14 @@ cc_data_fetch <- function(key, overwrite = FALSE) {
 print.ccafs_files <- function(x, ...) {
   cat("<CCAFS GCM files>", sep = "\n")
   cat(sprintf("   %s files", length(x)), sep = "\n")
-  cat(paste0("   Base dir: ", dirname(sub(cc_cache_path(), "", x[1]))), sep = "\n")
+  cat(paste0("   Base dir: ", dirname(sub(cc_cache_path(), "", x[1]))),
+      sep = "\n")
   files <- basename(x)
   ftypes <- unique(strextract(files, "\\..+"))
   cat("   File types (count): ", sep = "\n")
   for (i in seq_along(ftypes)) {
-    cat(sprintf("     - %s: %s", ftypes[i], length(grep(sprintf("%s$", ftypes[i]), files))), sep = "\n")
+    cat(sprintf("     - %s: %s", ftypes[i],
+                length(grep(sprintf("%s$", ftypes[i]), files))), sep = "\n")
   }
 }
 

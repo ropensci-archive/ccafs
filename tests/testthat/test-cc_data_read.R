@@ -5,7 +5,7 @@ key1 <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1
 test_that("cc_data_read works", {
   skip_on_cran()
 
-  res <- cc_data_fetch(key = key1)
+  res <- cc_data_fetch(key = key1, progress = FALSE)
 
   # single
   aa <- cc_data_read(res[1])

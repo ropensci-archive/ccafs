@@ -18,8 +18,9 @@ cc_GET <- function(url, ...) {
   contutf8(x)
 }
 
-cc_GETw <- function(url, path, overwrite = TRUE, ...) {
-  x <- GET(url, write_disk(path, overwrite = overwrite), progress(), ...)
+cc_GETw <- function(url, path, overwrite = TRUE, progress = TRUE, ...) {
+  x <- GET(url, write_disk(path, overwrite = overwrite),
+           if (progress) progress(), ...)
   if (x$status_code > 201) {
     unlink(path)
     stop(httr::http_status(x)$message, call. = FALSE)

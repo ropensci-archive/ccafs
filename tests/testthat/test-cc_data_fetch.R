@@ -5,7 +5,7 @@ key1 <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1
 test_that("cc_data_fetch works", {
   skip_on_cran()
 
-  aa <- cc_data_fetch(key = key1)
+  aa <- cc_data_fetch(key = key1, progress = FALSE)
 
   expect_is(aa, "ccafs_files")
   expect_null(names(aa))
@@ -18,5 +18,5 @@ test_that("cc_data_fetch - fails well", {
   skip_on_cran()
 
   expect_error(cc_data_fetch(), "argument \"key\" is missing")
-  expect_error(cc_data_fetch("Adfadfs"), "Not Found")
+  expect_error(cc_data_fetch("Adfadfs", progress = FALSE), "Not Found")
 })

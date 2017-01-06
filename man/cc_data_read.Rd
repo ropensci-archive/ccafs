@@ -22,10 +22,9 @@ are cached and to delete any.
 }
 \examples{
 \dontrun{
-key <- sub("\\n|\\\\s+", "", paste0(
- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
- 2030s/bcc_csm1_1_m/10min/",
- "bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"))
+key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
+ 2030s/bcc_csm1_1_m/10min/
+ bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
 res <- cc_data_fetch(key = key)
 
 # a single file
@@ -42,6 +41,7 @@ cc_data_read(res)
 cc_data_read(unclass(res[1]))
 
 # plot data
+library(raster)
 plot(cc_data_read(res[1:3]))
 }
 }

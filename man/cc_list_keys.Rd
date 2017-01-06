@@ -2,14 +2,16 @@
 % Please edit documentation in R/cc_list_keys.R
 \name{cc_list_keys}
 \alias{cc_list_keys}
-\title{List S3 keys}
+\title{List CCAFS keys}
 \usage{
 cc_list_keys(prefix = NULL, delimiter = NULL, max = 1000, marker = NULL,
   ...)
 }
 \arguments{
 \item{prefix}{(character) string that limits the response to keys that begin
-with the specified prefix}
+with the specified prefix. the string can have spaces and newlines, which
+are removed internally - this allows the prefix to break across lines as
+prefixes can be very long}
 
 \item{delimiter}{(character) string used to group keys.  Read the AWS doc
 for more detail.}
@@ -27,7 +29,7 @@ order, starting with key after the marker in order.}
 A tibble (a data.frame, basically)
 }
 \description{
-List S3 keys
+List CCAFS keys
 }
 \examples{
 \dontrun{
@@ -35,6 +37,8 @@ cc_list_keys()
 cc_list_keys(max = 10)
 cc_list_keys(max = 1)
 cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")
+cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/
+rcp2_6/2030s/bcc_csm1_1/10min/")
 }
 }
 
