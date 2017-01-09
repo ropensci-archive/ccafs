@@ -17,7 +17,7 @@ exist on your machine. Default: \code{FALSE}}
 \item{progress}{(logical) Whether to print download progress.
 Default: \code{TRUE}}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A character vector of full file paths. A print method makes a tidy
@@ -60,7 +60,12 @@ cc_data_read(x)
 library(raster)
 plot(cc_data_read(x[1]))
 plot(cc_data_read(x[1:3]))
-plot(cc_data_read(x))
+
+# show progress
+cc_cache_delete_all()
+cc_data_fetch(key = key, progress = TRUE)
+cc_cache_delete_all()
+cc_data_fetch(key = key, progress = FALSE)
 }
 }
 

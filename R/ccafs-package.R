@@ -62,7 +62,6 @@
 #' Get a citation for this package like \code{citation(package = 'ccafs')}
 #'
 #' @importFrom rappdirs user_cache_dir
-#' @importFrom httr GET stop_for_status write_disk progress content
 #' @importFrom raster raster stack
 #' @name ccafs-package
 #' @aliases ccafs

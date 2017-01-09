@@ -12,7 +12,7 @@
 #' @param marker (character) string that specifies the key to start with when
 #' listing objects in a bucket. Amazon S3 returns object keys in alphabetical
 #' order, starting with key after the marker in order.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return A tibble (a data.frame, basically), with the columms:
 #' \itemize{
 #'  \item Key - object key

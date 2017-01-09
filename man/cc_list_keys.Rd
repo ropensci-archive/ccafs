@@ -23,7 +23,7 @@ for more detail.}
 listing objects in a bucket. Amazon S3 returns object keys in alphabetical
 order, starting with key after the marker in order.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A tibble (a data.frame, basically), with the columms:

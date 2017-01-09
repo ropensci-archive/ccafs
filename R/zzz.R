@@ -13,26 +13,31 @@ last <- function(x) {
 }
 
 cc_GET <- function(url, ...) {
-  x <- GET(url, ...)
-  stop_for_status(x)
-  contutf8(x)
+  cli <- crul::HttpClient$new(url = url)
+  x <- cli$get(...)
+  x$raise_for_status()
+  x$parse("UTF-8")
 }
 
 cc_GETw <- function(url, path, overwrite = TRUE, progress = TRUE, ...) {
-  x <- GET(url, write_disk(path, overwrite = overwrite),
-           if (progress) progress(), ...)
+  cli <- crul::HttpClient$new(url = url)
+  if (!overwrite) {
+    if (file.exists(path)) {
+      stop("file exists and ovewrite is not TRUE", call. = FALSE)
+    }
+  }
+  x <- do.call(cli$get, as.list(c(
+    disk = path,
+    if (progress) httr::progress()$options,
+    ...)))
   if (x$status_code > 201) {
     unlink(path)
-    stop(httr::http_status(x)$message, call. = FALSE)
+    stop(x$status_http()$message, call. = FALSE)
   }
   x
 }
 
 strextract <- function(str, pattern) regmatches(str, regexpr(pattern, str))
-
-contutf8 <- function(x) {
-  content(x, "text", encoding = 'UTF-8')
-}
 
 parsxml <- function(x) {
   xml <- xml2::read_xml(x)
