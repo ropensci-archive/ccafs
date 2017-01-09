@@ -25,6 +25,12 @@ Potential users are probably anyone from scientists asking questions about clima
 
 ## Install
 
+CRAN version
+
+```{r eval=FALSE}
+install.packages("ccafs")
+```
+
 Dev version
 
 ```{r eval=FALSE}
@@ -38,7 +44,6 @@ library("ccafs")
 ```{r echo=FALSE}
 cc_cache_delete_all()
 ```
-
 
 ## List keys
 
