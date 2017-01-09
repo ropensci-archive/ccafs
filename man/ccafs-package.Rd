@@ -53,6 +53,10 @@ Check out \url{https://aws.amazon.com/s3/} for more info.
 \pkg{ccafs} is a client to work with the data CCAFS provides via Amazon Web
 Services S3 data.
 
+The \pkg{ccafs} data has access to is the "Spatial Downscaling" data that
+you see on the \url{http://ccafs-climate.org/data/} page. The other data
+sets are not open.
+
 Currently, we don't provide a way to search for what data is available.
 You have to know what you want, or you can list what is available, and then
 pick files from the list. Though there's not a lot of information in the

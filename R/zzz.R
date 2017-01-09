@@ -13,14 +13,20 @@ last <- function(x) {
 }
 
 cc_GET <- function(url, ...) {
-  cli <- crul::HttpClient$new(url = url)
+  cli <- crul::HttpClient$new(
+    url = url,
+    opts = list(useragent = paste0("ccafs/", utils::packageVersion("ccafs")))
+  )
   x <- cli$get(...)
   x$raise_for_status()
   x$parse("UTF-8")
 }
 
 cc_GETw <- function(url, path, overwrite = TRUE, progress = TRUE, ...) {
-  cli <- crul::HttpClient$new(url = url)
+  cli <- crul::HttpClient$new(
+    url = url,
+    opts = list(useragent = paste0("ccafs/", utils::packageVersion("ccafs")))
+  )
   if (!overwrite) {
     if (file.exists(path)) {
       stop("file exists and ovewrite is not TRUE", call. = FALSE)
