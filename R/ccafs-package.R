@@ -63,7 +63,7 @@
 #'
 #' @importFrom rappdirs user_cache_dir
 #' @importFrom httr GET stop_for_status write_disk progress content
-#' @importFrom raster raster brick
+#' @importFrom raster raster stack
 #' @name ccafs-package
 #' @aliases ccafs
 #' @docType package

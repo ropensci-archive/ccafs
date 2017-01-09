@@ -13,11 +13,11 @@ test_that("cc_data_read works", {
 
   # a few
   bb <- cc_data_read(res[1:2])
-  expect_is(bb, "RasterBrick")
+  expect_is(bb, "RasterStack")
 
   # all
   cc <- cc_data_read(res)
-  expect_is(cc, "RasterBrick")
+  expect_is(cc, "RasterStack")
 })
 
 test_that("cc_data_read - fails well", {

@@ -11,7 +11,7 @@ cc_data_read(x)
 \code{\link{cc_data_fetch}}}
 }
 \value{
-\code{RasterLayer} or \code{RasterBrick} class object. See their
+\code{RasterLayer} or \code{RasterStack} class object. See their
 help files in \code{raster} package documentation.
 }
 \description{

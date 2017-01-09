@@ -3,7 +3,7 @@
 #' @export
 #' @param x A \code{ccafs_files} object, the output from a call to
 #' \code{\link{cc_data_fetch}}
-#' @return \code{RasterLayer} or \code{RasterBrick} class object. See their
+#' @return \code{RasterLayer} or \code{RasterStack} class object. See their
 #' help files in \code{raster} package documentation.
 #' @details Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
 #' are cached and to delete any.
@@ -54,10 +54,16 @@ cc_data_read.ccafs_files <- function(x) {
 cc_data_read.character <- function(x) {
   if (!all(file.exists(x))) stop("one or more files don't exist", call. = FALSE)
   drop_non_readable(x)
-  if (length(x) == 1) {
+  if (length(x) == 1 && !file.info(x)$isdir) {
     raster(x)
-  } else if (length(x) > 1) {
-    brick(as.list(x))
+  } else if (length(x) > 1 || length(x) == 1 && file.info(x)$isdir) {
+    if (length(x) == 1) {
+      if (file.info(x)$isdir) {
+        stack(list.files(x, full.names = TRUE, pattern = ".asc"))
+      }
+    } else {
+      stack(x)
+    }
   } else {
     stop("input had length zero", call. = FALSE)
   }
