@@ -1,7 +1,8 @@
 #' Download CCAFS data
 #'
 #' @export
-#' @param key (character) a character string specifying a file. the key
+#' @param key (character) a character string specifying a S3 key
+#' or a URL (the output from a call to \code{\link{cc_search}}. the key
 #' can have spaces and newlines, which are removed internally - this allows
 #' keys to break across lines as keys can be very long
 #' @param overwrite (logical) Whether to overwrite files if they already
