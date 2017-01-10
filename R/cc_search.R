@@ -20,11 +20,6 @@
 #' cc_search(file_set = 12, extent = "global", format = "ascii",
 #'   period = 4, variable = 1, resolution = 4
 #' )
-#'
-#' # a deprecated file
-#' # cc_search(file_set = 3, scenario = 2, model = 4, extent = "global",
-#' #   format = "ascii", period = 7, variable = 2, resolution = 5
-#' # )
 cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   extent = NULL, format = NULL, period = NULL, variable = NULL,
   resolution = NULL) {

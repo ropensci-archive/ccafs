@@ -38,10 +38,5 @@ cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
 cc_search(file_set = 12, extent = "global", format = "ascii",
   period = 4, variable = 1, resolution = 4
 )
-
-# a deprecated file
-# cc_search(file_set = 3, scenario = 2, model = 4, extent = "global",
-#   format = "ascii", period = 7, variable = 2, resolution = 5
-# )
 }
 
