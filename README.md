@@ -7,6 +7,7 @@ ccafs
 
 [![Build Status](https://travis-ci.org/ropenscilabs/ccafs.svg?branch=master)](https://travis-ci.org/ropenscilabs/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
+[![codecov](https://codecov.io/gh/ropenscilabs/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/ccafs)
 
 R client for Climate Change, Agriculture, and Food Security (CCAFS) 
 General Circulation Models (GCM) data. 
