@@ -4,7 +4,7 @@ Title: Client for 'CCAFS' 'GCM' Data
 Description: Client for Climate Change, Agriculture, and Food Security ('CCAFS')
     General Circulation Models ('GCM') data. Data is stored in Amazon 'S3', from
     which we provide functions to fetch data.
-Version: 0.0.9.9110
+Version: 0.0.9.9310
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
@@ -17,6 +17,7 @@ Imports:
     raster (>= 2.5-8),
     tibble (>= 1.2),
     xml2 (>= 1.0.0),
+    jsonlite (>= 1.2),
     data.table (>= 1.9.6)
 Suggests:
     roxygen2 (>= 5.0.1),

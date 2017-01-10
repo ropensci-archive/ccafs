@@ -1,5 +1,7 @@
 cp <- function(x) Filter(Negate(is.null), x)
 
+ccafs_web <- function() "http://ccafs-climate.org"
+
 ccafs_bucket <- function() "cgiardata"
 
 ccafs_base <- function() "http://cgiardata.s3.amazonaws.com"
