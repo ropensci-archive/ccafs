@@ -5,7 +5,8 @@
 \title{Search CCAFS data}
 \usage{
 cc_search(file_set = NULL, scenario = NULL, model = NULL, extent = NULL,
-  format = NULL, period = NULL, variable = NULL, resolution = NULL)
+  format = NULL, period = NULL, variable = NULL, resolution = NULL,
+  tile = NULL)
 }
 \arguments{
 \item{file_set}{(integer) a file set, 2 through 12}
@@ -23,20 +24,36 @@ cc_search(file_set = NULL, scenario = NULL, model = NULL, extent = NULL,
 \item{variable}{(integer) a variable, 1 through 7, or 9999}
 
 \item{resolution}{(integer) a resolutions, 1 through 7}
+
+\item{tile}{(character) one of A1-6, B1-6, or C1-6. See web interface
+for where those are located.}
+}
+\value{
+character strings, one or more urls
 }
 \description{
 Search CCAFS data
 }
 \details{
 See \code{\link{ccafs-search}} for details on parameters
+
+note that some URLs will be for Amazon S3 and others will have different
+base URLS (e.g., http://gisweb.ciat.cgiar.org)
+
+Output can be passed to \code{\link{cc_data_fetch}}, and subsequently to
+\code{\link{cc_data_read}}
 }
 \examples{
-cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
-  format = "ascii", period = 5, variable = 2, resolution = 3
-)
+(res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
+  format = "ascii", period = 5, variable = 2, resolution = 3))
 
-cc_search(file_set = 12, extent = "global", format = "ascii",
-  period = 4, variable = 1, resolution = 4
-)
+(res <- cc_search(file_set = 12, extent = "global", format = "ascii",
+  period = 4, variable = 1, resolution = 4))
+cc_data_fetch(res[1])
+lapply(res[1:3], cc_data_fetch)
+
+res <- cc_search(file_set = 7, extent = "region", format = "ascii",
+  period = 9, variable = 5, resolution = 6)
+cc_data_fetch(res[3])
 }
 

@@ -9,32 +9,46 @@
 #' @param period (integer) a period, 1 through 10
 #' @param variable (integer) a variable, 1 through 7, or 9999
 #' @param resolution (integer) a resolutions, 1 through 7
+#' @param tile (character) one of A1-6, B1-6, or C1-6. See web interface
+#' for where those are located.
 #'
+#' @return character strings, one or more urls
 #' @details See \code{\link{ccafs-search}} for details on parameters
 #'
-#' @examples
-#' cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
-#'   format = "ascii", period = 5, variable = 2, resolution = 3
-#' )
+#' note that some URLs will be for Amazon S3 and others will have different
+#' base URLS (e.g., http://gisweb.ciat.cgiar.org)
 #'
-#' cc_search(file_set = 12, extent = "global", format = "ascii",
-#'   period = 4, variable = 1, resolution = 4
-#' )
+#' Output can be passed to \code{\link{cc_data_fetch}}, and subsequently to
+#' \code{\link{cc_data_read}}
+#'
+#' @examples
+#' (res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
+#'   format = "ascii", period = 5, variable = 2, resolution = 3))
+#'
+#' (res <- cc_search(file_set = 12, extent = "global", format = "ascii",
+#'   period = 4, variable = 1, resolution = 4))
+#' cc_data_fetch(res[1])
+#' lapply(res[1:3], cc_data_fetch)
+#'
+#' res <- cc_search(file_set = 7, extent = "region", format = "ascii",
+#'   period = 9, variable = 5, resolution = 6)
+#' cc_data_fetch(res[3])
 cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   extent = NULL, format = NULL, period = NULL, variable = NULL,
-  resolution = NULL) {
+  resolution = NULL, tile = NULL) {
 
   # client
   cli <- crul::HttpClient$new(url = ccafs_web())
 
   # search
-  args <- cp(list(fileSet = file_set, tile_name = NULL,
+  args <- cp(list(fileSet = file_set, tile_name = tile,
                   'scenarios[]' = scenario, 'model[]' = model,
                   extent = switch_extent(extent),
                   'formats[]' = switch_format(format), 'period[]' = period,
                   'variables[]' = variable, resolution = resolution))
-  res <- cli$get(path = "file-list.php", query = args)
-  html <- xml2::read_html(res$parse('UTF-8'))
+  res1 <- cli$get(path = "file-list.php", query = args)
+  res1$raise_for_status()
+  html <- xml2::read_html(res1$parse('UTF-8'))
   file_set <- xml2::xml_attr(xml2::xml_find_first(
     html,
     "//input[@type=\"hidden\"]"
@@ -43,25 +57,29 @@ cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
     html,
     "//input[@class=\"checkbox-file\"]"
   ), 'value')
-  if (all(is.na(dfs))) stop("no results found or all files deprecated", call. = FALSE)
+  if (all(is.na(dfs))) stop("no results found or all files deprecated",
+                            call. = FALSE)
   dfs <- as.list(stats::setNames(dfs, rep('download-files[]', length(dfs))))
 
   # get to skip page
   body <- c(dfs, list(fileSet = file_set, `file-type` = "file"))
-  res <- cli$post("form.php", body = body)
+  res2 <- cli$post("form.php", body = body)
+  res2$raise_for_status()
 
   # generate download link
   body <- list(context = "submit-user-anonymous",
     userId = -1, instituteName = "Anonymous", use = "unknown")
-  res <- cli$post("ajax/user-info.php", body = body)
-  download_id <- res$parse("UTF-8")
+  res3 <- cli$post("ajax/user-info.php", body = body)
+  res3$raise_for_status()
+  download_id <- res3$parse("UTF-8")
 
   # get download link
   dfs_file <- stats::setNames(dfs, rep('files[]', length(dfs)))
   body <- c(dfs_file, list(fileSet = file_set, `downloadId[]` = download_id,
     fileType = "file"))
-  res <- cli$post("ajax/links-generator.php", body = body)
-  jsonlite::fromJSON(res$parse("UTF-8"))$reference
+  res4 <- cli$post("ajax/links-generator.php", body = body)
+  res4$raise_for_status()
+  jsonlite::fromJSON(res4$parse("UTF-8"))$reference
 }
 
 switch_extent <- function(x) {
@@ -87,51 +105,3 @@ switch_format <- function(x) {
     NULL
   }
 }
-
-# # Search
-# #url <- 'http://ccafs-climate.org/file-list.php?fileSet=4&tile_name=&scenarios%5B%5D=6&model%5B%5D=2&extent=1&formats%5B%5D=1&period%5B%5D=5&variables%5B%5D=2&resolution=3'
-# url <- "http://ccafs-climate.org/file-list.php?fileSet=12&tile_name=&extent=1&formats%5B%5D=1&period%5B%5D=4&variables%5B%5D=1&resolution=4"
-# cli <- crul::HttpClient$new(url = url)
-# res <- cli$get()
-# #cat(res$parse('UTF-8'))
-# html <- xml2::read_html(res$parse('UTF-8'))
-# library(xml2)
-# file_set <- xml_attr(xml_find_first(
-#   html,
-#   "//input[@type=\"hidden\"]"
-# ), "value")
-# dfs <- xml_attr(xml_find_all(
-#   html,
-#   "//input[@class=\"checkbox-file\"]"
-# ), 'value')
-# dfs <- as.list(stats::setNames(dfs, rep('download-files[]', length(dfs))))
-#
-# # get to skip page
-# ccafs_url2 <- "http://ccafs-climate.org/"
-# cli2 <- crul::HttpClient$new(url = ccafs_url2)
-# body <- c(dfs, list(
-#   fileSet = file_set,
-#   `file-type` = "file"
-# ))
-# res <- cli2$post("form.php", body = body, verbose = TRUE)
-# cat(res$parse())
-#
-# # generate download link
-# body <- list(
-#   context = "submit-user-anonymous",
-#   userId = -1,
-#   instituteName = "Anonymous",
-#   use = "unknown"
-# )
-# res <- cli2$post("ajax/user-info.php", body = body, verbose = TRUE)
-# download_id <- res$parse("UTF-8")
-#
-# # get download link
-# dfs_file <- stats::setNames(dfs, rep('files[]', length(dfs)))
-# body <- c(dfs_file, list(
-#   fileSet = file_set,
-#   `downloadId[]` = download_id,
-#   fileType = "file"
-# ))
-# res <- cli2$post("ajax/links-generator.php", body = body, verbose = TRUE)
-# jsonlite::fromJSON(res$parse("UTF-8"))$reference

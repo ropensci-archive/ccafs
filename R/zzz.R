@@ -7,6 +7,7 @@ ccafs_bucket <- function() "cgiardata"
 ccafs_base <- function() "http://cgiardata.s3.amazonaws.com"
 
 make_url <- function(x) {
+  if (grepl("https?://", x)) return(x)
   paste0(sprintf("http://%s.s3.amazonaws.com/", ccafs_bucket()), x)
 }
 
