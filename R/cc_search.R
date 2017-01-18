@@ -4,8 +4,8 @@
 #' @param file_set (integer) a file set, 2 through 12
 #' @param scenario (integer) a scenario, 1 through 10
 #' @param model (integer) a model, 1 through 89
-#' @param extent (character) an extent, global (1) or region (2)
-#' @param format (character) a format, ascii (1) or esri (2)
+#' @param extent (character) an extent, 'global' or 'region'
+#' @param format (character) a format, 'ascii' or 'esri'
 #' @param period (integer) a period, 1 through 10
 #' @param variable (integer) a variable, 1 through 7, or 9999
 #' @param resolution (integer) a resolutions, 1 through 7
@@ -36,6 +36,15 @@
 cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   extent = NULL, format = NULL, period = NULL, variable = NULL,
   resolution = NULL, tile = NULL) {
+
+  assert(file_set, c('integer', 'numeric'))
+  assert(scenario, c('integer', 'numeric'))
+  assert(model, c('integer', 'numeric'))
+  assert(extent, "character")
+  assert(format, "character")
+  assert(period, c('integer', 'numeric'))
+  assert(variable, c('integer', 'numeric'))
+  assert(resolution, c('integer', 'numeric'))
 
   # client
   cli <- crul::HttpClient$new(url = ccafs_web())

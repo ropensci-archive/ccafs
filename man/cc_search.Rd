@@ -15,9 +15,9 @@ cc_search(file_set = NULL, scenario = NULL, model = NULL, extent = NULL,
 
 \item{model}{(integer) a model, 1 through 89}
 
-\item{extent}{(character) an extent, global (1) or region (2)}
+\item{extent}{(character) an extent, 'global' or 'region'}
 
-\item{format}{(character) a format, ascii (1) or esri (2)}
+\item{format}{(character) a format, 'ascii' or 'esri'}
 
 \item{period}{(integer) a period, 1 through 10}
 

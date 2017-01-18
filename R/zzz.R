@@ -60,3 +60,12 @@ flat_list <- function(z) {
 }
 
 cc_cache_path <- function() rappdirs::user_cache_dir("ccafs")
+
+assert <- function(x, y) {
+  if (!is.null(x)) {
+    if (!class(x) %in% y) {
+      stop(deparse(substitute(x)), " must be of class ",
+           paste0(y, collapse = ", "), call. = FALSE)
+    }
+  }
+}
