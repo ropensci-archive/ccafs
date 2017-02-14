@@ -9,11 +9,11 @@
 #' @param period (integer) a period, 1 through 10
 #' @param variable (integer) a variable, 1 through 7, or 9999
 #' @param resolution (integer) a resolutions, 1 through 7
-#' @param tile (character) one of A1-6, B1-6, or C1-6. See web interface
-#' for where those are located.
+#' @param tile (character) a tile defining a spatial area on the globe.
+#' one of A1-6, B1-6, or C1-6. See web interface for where those are located.
 #'
 #' @return character strings, one or more urls
-#' @details See \code{\link{ccafs-search}} for details on parameters
+#' @details See \code{\link{ccafs-search}} for details on parameters.
 #'
 #' note that some URLs will be for Amazon S3 and others will have different
 #' base URLS (e.g., http://gisweb.ciat.cgiar.org)
@@ -33,6 +33,19 @@
 #' res <- cc_search(file_set = 7, extent = "region", format = "ascii",
 #'   period = 9, variable = 5, resolution = 6)
 #' cc_data_fetch(res[3])
+#'
+#' # Alternatively, you can use the helper list
+#' # where you can reference options by name
+#' # the downside is that this is very verbose
+#' (res <- cc_search(file_set = cc_params$file_set$`Delta method IPCC AR4`,
+#'                   scenario = cc_params$scenario$`SRES B1`,
+#'                   model = cc_params$model$bccr_bcm2_0,
+#'                   extent = cc_params$extent$global,
+#'                   format = cc_params$format$ascii,
+#'                   period = cc_params$period$`2040s`,
+#'                   variable = cc_params$variable$Precipitation,
+#'                   resolution = cc_params$resolution$`5 minutes`))
+
 cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   extent = NULL, format = NULL, period = NULL, variable = NULL,
   resolution = NULL, tile = NULL) {
@@ -42,6 +55,7 @@ cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   assert(model, c('integer', 'numeric'))
   assert(extent, "character")
   assert(format, "character")
+  assert(tile, "character")
   assert(period, c('integer', 'numeric'))
   assert(variable, c('integer', 'numeric'))
   assert(resolution, c('integer', 'numeric'))

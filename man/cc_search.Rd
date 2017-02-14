@@ -25,8 +25,8 @@ cc_search(file_set = NULL, scenario = NULL, model = NULL, extent = NULL,
 
 \item{resolution}{(integer) a resolutions, 1 through 7}
 
-\item{tile}{(character) one of A1-6, B1-6, or C1-6. See web interface
-for where those are located.}
+\item{tile}{(character) a tile defining a spatial area on the globe.
+one of A1-6, B1-6, or C1-6. See web interface for where those are located.}
 }
 \value{
 character strings, one or more urls
@@ -35,7 +35,7 @@ character strings, one or more urls
 Search CCAFS data
 }
 \details{
-See \code{\link{ccafs-search}} for details on parameters
+See \code{\link{ccafs-search}} for details on parameters.
 
 note that some URLs will be for Amazon S3 and others will have different
 base URLS (e.g., http://gisweb.ciat.cgiar.org)
@@ -55,4 +55,16 @@ lapply(res[1:3], cc_data_fetch)
 res <- cc_search(file_set = 7, extent = "region", format = "ascii",
   period = 9, variable = 5, resolution = 6)
 cc_data_fetch(res[3])
+
+# Alternatively, you can use the helper list
+# where you can reference options by name
+# the downside is that this is very verbose
+(res <- cc_search(file_set = cc_params$file_set$`Delta method IPCC AR4`,
+                  scenario = cc_params$scenario$`SRES B1`,
+                  model = cc_params$model$bccr_bcm2_0,
+                  extent = cc_params$extent$global,
+                  format = cc_params$format$ascii,
+                  period = cc_params$period$`2040s`,
+                  variable = cc_params$variable$Precipitation,
+                  resolution = cc_params$resolution$`5 minutes`))
 }
