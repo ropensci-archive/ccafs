@@ -4,7 +4,7 @@
 \alias{cc_data_read}
 \title{Read CCAFS data}
 \usage{
-cc_data_read(x)
+cc_data_read(x, unreadable = "filter")
 }
 \arguments{
 \item{x}{A \code{ccafs_files} object, the output from a call to

@@ -20,7 +20,7 @@ cache_data <- function(key, cache = TRUE, overwrite = FALSE,
     utils::unzip(file, exdir = outdir, overwrite = overwrite)
   }
 
-  list.files(outdir, full.names = TRUE)
+  list.files(outdir, full.names = TRUE, recursive = TRUE)
 }
 
 fix_key <- function(x) {

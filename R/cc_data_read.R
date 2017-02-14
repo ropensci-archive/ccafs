@@ -36,24 +36,24 @@
 #' library(raster)
 #' plot(cc_data_read(res[1:3]))
 #' }
-cc_data_read <- function(x) {
+cc_data_read <- function(x, unreadable = "filter") {
   UseMethod("cc_data_read")
 }
 
 #' @export
-cc_data_read.default <- function(x) {
+cc_data_read.default <- function(x, unreadable = "filter") {
   stop("no 'cc_data_read' method for class ", class(x), call. = FALSE)
 }
 
 #' @export
-cc_data_read.ccafs_files <- function(x) {
+cc_data_read.ccafs_files <- function(x, unreadable = "filter") {
   cc_data_read(unclass(x))
 }
 
 #' @export
-cc_data_read.character <- function(x) {
+cc_data_read.character <- function(x, unreadable = "filter") {
   if (!all(file.exists(x))) stop("one or more files don't exist", call. = FALSE)
-  drop_non_readable(x)
+  x <- drop_non_readable(x, unreadable)
   if (length(x) == 1 && !file.info(x)$isdir) {
     raster(x)
   } else if (length(x) > 1 || length(x) == 1 && file.info(x)$isdir) {
@@ -70,13 +70,19 @@ cc_data_read.character <- function(x) {
 }
 
 # helpers
-drop_non_readable <- function(x) {
+drop_non_readable <- function(x, unreadable) {
   exts <- strextract(basename(unclass(x)), "\\..+")
   if (!all(grepl("\\.asc$", exts))) {
-    stop(
-      "Some files not readable: \n   ",
-      paste0(unclass(x)[grep("\\.asc$", exts, invert = TRUE)], collapse = ", "),
-      call. = FALSE
-    )
+    if (unreadable == "stop") {
+      stop(
+        "Some files not readable: \n   ",
+        paste0(unclass(x)[grep("\\.asc$", exts, invert = TRUE)], collapse = ", "),
+        call. = FALSE
+      )
+    } else {
+      grep("\\.asc$", x, value = TRUE)
+    }
+  } else {
+    return(x)
   }
 }
