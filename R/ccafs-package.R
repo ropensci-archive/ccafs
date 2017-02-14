@@ -74,6 +74,9 @@
 #' @keywords package
 #'
 #' @section Vignette:
-#' You can access the vignette like \code{vignette(package = "ccafs")} or
-#' \code{vignette("ccafs_vignette", package = "ccafs")}
+#' \pkg{ccafs} has the following vignettes:
+#' \itemize{
+#'  \item \code{vignette("ccafs_vignette", package = "ccafs")}
+#'  \item \code{vignette("amazon_s3_keys", package = "ccafs")}
+#' }
 NULL

@@ -9,4 +9,3 @@ when trying to plot raster objects without having \code{raster} loaded
 first.
 }
 \keyword{internal}
-

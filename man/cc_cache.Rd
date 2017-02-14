@@ -2,10 +2,10 @@
 % Please edit documentation in R/caching.R
 \name{cc_cache}
 \alias{cc_cache}
+\alias{cc_cache_list}
 \alias{cc_cache_delete}
 \alias{cc_cache_delete_all}
 \alias{cc_cache_details}
-\alias{cc_cache_list}
 \title{Manage cached CCAFS files}
 \usage{
 cc_cache_list()
@@ -45,6 +45,7 @@ cache folder by executing \code{rappdirs::user_cache_dir("ccafs")}
  all available)
 }
 }
+
 \examples{
 \dontrun{
 # list files in cache
@@ -64,4 +65,3 @@ cc_cache_details()
 # cc_cache_delete_all()
 }
 }
-

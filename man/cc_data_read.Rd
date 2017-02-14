@@ -52,4 +52,3 @@ library(raster)
 plot(cc_data_read(res[1:3]))
 }
 }
-

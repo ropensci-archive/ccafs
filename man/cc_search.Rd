@@ -56,4 +56,3 @@ res <- cc_search(file_set = 7, extent = "region", format = "ascii",
   period = 9, variable = 5, resolution = 6)
 cc_data_fetch(res[3])
 }
-

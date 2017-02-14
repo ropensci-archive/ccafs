@@ -69,4 +69,3 @@ cc_cache_delete_all()
 cc_data_fetch(key = key, progress = FALSE)
 }
 }
-
