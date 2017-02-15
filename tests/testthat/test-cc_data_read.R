@@ -25,4 +25,9 @@ test_that("cc_data_read - fails well", {
 
   expect_error(cc_data_read(), "argument \"x\" is missing")
   expect_error(cc_data_read("Adfadfs"), "don't exist")
+
+  # fails well when bad unreadable param used
+  res <- cc_data_fetch(key = key1, progress = FALSE)
+  expect_error(cc_data_read(x = res, unreadable = "Adfadfs"),
+               "is not TRUE")
 })
