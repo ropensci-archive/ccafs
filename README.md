@@ -5,24 +5,24 @@ ccafs
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Build Status](https://travis-ci.org/ropenscilabs/ccafs.svg?branch=master)](https://travis-ci.org/ropenscilabs/ccafs)
+[![Build Status](https://travis-ci.org/ropensci/ccafs.svg?branch=master)](https://travis-ci.org/ropensci/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
-[![codecov](https://codecov.io/gh/ropenscilabs/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/ccafs)
+[![codecov](https://codecov.io/gh/ropensci/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/ccafs)
 
-R client for Climate Change, Agriculture, and Food Security (CCAFS) 
-General Circulation Models (GCM) data. 
+R client for Climate Change, Agriculture, and Food Security (CCAFS)
+General Circulation Models (GCM) data.
 
 ## About CCAFS
 
 CCAFS website: <http://ccafs-climate.org/>
 
-CCAFS GCM data for this package comes from Amazon S3 
-[root path](http://cgiardata.s3.amazonaws.com). Amazon S3 stands for "Simple 
-Storage Service" - it's like a file system, and they give you links to the files 
+CCAFS GCM data for this package comes from Amazon S3
+[root path](http://cgiardata.s3.amazonaws.com). Amazon S3 stands for "Simple
+Storage Service" - it's like a file system, and they give you links to the files
 and metadata around those links.  More about Amazon S3 below.
 
 CCAFS data can be used for studying climate change, and how climate impacts
-various aspects of the earth. Search google scholar with `"CCAFS" "GCM"` to 
+various aspects of the earth. Search google scholar with `"CCAFS" "GCM"` to
 see example uses.
 
 As far as I can tell, CCAFS GCM data comes from IPCC data.
@@ -45,13 +45,13 @@ Check out <https://aws.amazon.com/s3/> for more info.
 
 ## About the package
 
-`ccafs` is a client to work with the data CCAFS provides via Amazon Web 
-Services S3 data. 
+`ccafs` is a client to work with the data CCAFS provides via Amazon Web
+Services S3 data.
 
-Currently, we don't provide a way to search for what data is available. 
-You have to know what you want, or you can list what is available, and then 
-pick files from the list. Though there's not a lot of information in the 
-metadata returned from S3. 
+Currently, we don't provide a way to search for what data is available.
+You have to know what you want, or you can list what is available, and then
+pick files from the list. Though there's not a lot of information in the
+metadata returned from S3.
 
 We'll work on incorporating a way to search - currently there is no solution.
 
@@ -59,7 +59,7 @@ We'll work on incorporating a way to search - currently there is no solution.
 
 Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
 
-Get a citation for this package like `citation(package = 'ccafs')` after 
+Get a citation for this package like `citation(package = 'ccafs')` after
 installing the package.
 
 ## Install
@@ -75,7 +75,7 @@ Development version
 
 
 ```r
-devtools::install_github("ropenscilabs/ccafs")
+devtools::install_github("ropensci/ccafs")
 ```
 
 
@@ -83,7 +83,7 @@ devtools::install_github("ropenscilabs/ccafs")
 library("ccafs")
 ```
 
-## Fetch files 
+## Fetch files
 
 Note, files are not loaded as they can be very large
 
@@ -94,7 +94,7 @@ key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_
 #> <CCAFS GCM files>
 #>    12 files
 #>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
-#>    File types (count): 
+#>    File types (count):
 #>      - .asc: 12
 ```
 
@@ -105,27 +105,27 @@ Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
 
 ```r
 cc_data_read(res[1])
-#> class       : RasterLayer 
+#> class       : RasterLayer
 #> dimensions  : 900, 2160, 1944000  (nrow, ncol, ncell)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA 
-#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc 
-#> names       : prec_1 
+#> coord. ref. : NA
+#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc
+#> names       : prec_1
 #> values      : -2147483648, 2147483647  (min, max)
 ```
 
 
 ```r
 cc_data_read(res[1:2])
-#> class       : RasterBrick 
+#> class       : RasterBrick
 #> dimensions  : 900, 2160, 1944000, 2  (nrow, ncol, ncell, nlayers)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA 
+#> coord. ref. : NA
 #> data source : in memory
-#> names       : prec_1, prec_10 
-#> min values  :      0,       0 
+#> names       : prec_1, prec_10
+#> min values  :      0,       0
 #> max values  :    966,     997
 ```
 
@@ -142,7 +142,7 @@ plot(cc_data_read(res[1:3]))
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/ccafs/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/ccafs/issues).
 * License: MIT
 * Get citation information for `ccafs` in R doing `citation(package = 'ccafs')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

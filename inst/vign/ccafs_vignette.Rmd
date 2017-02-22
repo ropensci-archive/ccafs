@@ -34,7 +34,7 @@ install.packages("ccafs")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github("ropenscilabs/ccafs")
+devtools::install_github("ropensci/ccafs")
 ```
 
 ```{r}
@@ -116,7 +116,7 @@ See `?cc_cache` for all the cache management functions.
 
 ## Read data
 
-After fetching data, you need to read the data into a `RasterLayer` or 
+After fetching data, you need to read the data into a `RasterLayer` or
 `RasterBrick` object
 
 You can read a single file
@@ -144,5 +144,5 @@ library("raster")
 plot(cc_data_read(res[1:6]))
 ```
 
-For more control over vizualizations of raster data, check out the 
+For more control over vizualizations of raster data, check out the
 [rasterVis](https://CRAN.R-project.org/package=rasterVis) package.
