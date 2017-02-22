@@ -10,7 +10,7 @@ cc_data_read(x, unreadable = "filter")
 \item{x}{A \code{ccafs_files} object, the output from a call to
 \code{\link{cc_data_fetch}}}
 
-\item{unreadable}{(logical) what to do when unreadable files are passed in.
+\item{unreadable}{(character) what to do when unreadable files are passed in.
 default is to filter them out and proceed ("filter") - alternatively,
 you can choose "stop", in which case we'll stop with a message.}
 }

@@ -3,7 +3,7 @@
 #' @export
 #' @param x A \code{ccafs_files} object, the output from a call to
 #' \code{\link{cc_data_fetch}}
-#' @param unreadable (logical) what to do when unreadable files are passed in.
+#' @param unreadable (character) what to do when unreadable files are passed in.
 #' default is to filter them out and proceed ("filter") - alternatively,
 #' you can choose "stop", in which case we'll stop with a message.
 #' @return \code{RasterLayer} or \code{RasterStack} class object. See their
@@ -50,12 +50,12 @@ cc_data_read.default <- function(x, unreadable = "filter") {
 
 #' @export
 cc_data_read.ccafs_files <- function(x, unreadable = "filter") {
-  cc_data_read(unclass(x))
+  cc_data_read(unclass(x), unreadable)
 }
 
 #' @export
 cc_data_read.character <- function(x, unreadable = "filter") {
-  stopifnot(!unreadable %in% c('filter', 'stop'))
+  stopifnot(unreadable %in% c('filter', 'stop'))
   if (!all(file.exists(x))) stop("one or more files don't exist", call. = FALSE)
   x <- drop_non_readable(x, unreadable)
   if (length(x) == 1 && !file.info(x)$isdir) {
