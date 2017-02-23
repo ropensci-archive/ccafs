@@ -9,6 +9,7 @@ ccafs
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
 [![codecov](https://codecov.io/gh/ropensci/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/ccafs)
 
+
 R client for Climate Change, Agriculture, and Food Security (CCAFS)
 General Circulation Models (GCM) data.
 
@@ -48,6 +49,10 @@ Check out <https://aws.amazon.com/s3/> for more info.
 `ccafs` is a client to work with the data CCAFS provides via Amazon Web
 Services S3 data.
 
+The `ccafs` data has access to is the "Spatial Downscaling" data that you see
+on the <http://ccafs-climate.org/data/> page. The other data sets are not
+open.
+
 Currently, we don't provide a way to search for what data is available.
 You have to know what you want, or you can list what is available, and then
 pick files from the list. Though there's not a lot of information in the
@@ -61,6 +66,11 @@ Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
 
 Get a citation for this package like `citation(package = 'ccafs')` after
 installing the package.
+
+## raster
+
+The main useful output are `raster` package objects of class `RasterLayer` or `RasterBrick` - so in general have `raster` loaded in your session to maximize
+happiness.
 
 ## Install
 
@@ -91,10 +101,11 @@ Note, files are not loaded as they can be very large
 ```r
 key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
 (res <- cc_data_fetch(key = key))
+#> 
 #> <CCAFS GCM files>
 #>    12 files
 #>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
-#>    File types (count):
+#>    File types (count): 
 #>      - .asc: 12
 ```
 
@@ -105,28 +116,27 @@ Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
 
 ```r
 cc_data_read(res[1])
-#> class       : RasterLayer
+#> class       : RasterLayer 
 #> dimensions  : 900, 2160, 1944000  (nrow, ncol, ncell)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA
-#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc
-#> names       : prec_1
+#> coord. ref. : NA 
+#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc 
+#> names       : prec_1 
 #> values      : -2147483648, 2147483647  (min, max)
 ```
 
 
 ```r
 cc_data_read(res[1:2])
-#> class       : RasterBrick
+#> class       : RasterStack 
 #> dimensions  : 900, 2160, 1944000, 2  (nrow, ncol, ncell, nlayers)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA
-#> data source : in memory
-#> names       : prec_1, prec_10
-#> min values  :      0,       0
-#> max values  :    966,     997
+#> coord. ref. : NA 
+#> names       :      prec_1,     prec_10 
+#> min values  : -2147483648, -2147483648 
+#> max values  :  2147483647,  2147483647
 ```
 
 ## Plot
