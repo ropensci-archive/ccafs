@@ -26,10 +26,12 @@
 #' Keys are essentially file paths. You can request data from any key that is
 #' a file (with a file extension, and has size > 0). Other keys are
 #' directories.
-#' @examples \dontrun{
+#' @examples
+#' cc_list_keys(max = 1)
+#'
+#' \dontrun{
 #' cc_list_keys()
 #' cc_list_keys(max = 10)
-#' cc_list_keys(max = 1)
 #' cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")
 #' cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/
 #' rcp2_6/2030s/bcc_csm1_1/10min/")

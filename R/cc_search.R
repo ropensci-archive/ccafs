@@ -22,14 +22,10 @@
 #' \code{\link{cc_data_read}}
 #'
 #' @examples
-#' (res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
-#'   format = "ascii", period = 5, variable = 2, resolution = 3))
-#'
 #' (res <- cc_search(file_set = 12, extent = "global", format = "ascii",
 #'   period = 4, variable = 1, resolution = 4))
-#' cc_data_fetch(res[1])
-#' lapply(res[1:3], cc_data_fetch)
 #'
+#' \dontrun{
 #' res <- cc_search(file_set = 7, extent = "region", format = "ascii",
 #'   period = 9, variable = 5, resolution = 6)
 #' cc_data_fetch(res[3])
@@ -45,6 +41,7 @@
 #'                   period = cc_params$period$`2040s`,
 #'                   variable = cc_params$variable$Precipitation,
 #'                   resolution = cc_params$resolution$`5 minutes`))
+#' }
 
 cc_search <- function(file_set = NULL, scenario = NULL, model = NULL,
   extent = NULL, format = NULL, period = NULL, variable = NULL,
