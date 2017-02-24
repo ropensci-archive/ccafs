@@ -53,13 +53,6 @@ The `ccafs` data has access to is the "Spatial Downscaling" data that you see
 on the <http://ccafs-climate.org/data/> page. The other data sets are not
 open.
 
-Currently, we don't provide a way to search for what data is available.
-You have to know what you want, or you can list what is available, and then
-pick files from the list. Though there's not a lot of information in the
-metadata returned from S3.
-
-We'll work on incorporating a way to search - currently there is no solution.
-
 ## Citations
 
 Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
@@ -93,6 +86,35 @@ devtools::install_github("ropensci/ccafs")
 library("ccafs")
 ```
 
+## Search
+
+You can search by the numbers representing each possible value for 
+each parameter. See the `?'ccafs-search'` for help on that.
+
+
+```r
+(res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
+  format = "ascii", period = 5, variable = 2, resolution = 3))
+#> [1] "http://gisweb.ciat.cgiar.org/ccafs_climate/files/data/ipcc_4ar_ciat/sres_b1/2040s/bccr_bcm2_0/5min/bccr_bcm2_0_sres_b1_2040s_prec_5min_no_tile_asc.zip"
+```
+
+Alternatively, you can use the helper list where you can reference options 
+by name; the downside is that this leads to very verbose code.
+
+
+```r
+(res <- cc_search(file_set = cc_params$file_set$`Delta method IPCC AR4`,
+                  scenario = cc_params$scenario$`SRES B1`,
+                  model = cc_params$model$bccr_bcm2_0,
+                  extent = cc_params$extent$global,
+                  format = cc_params$format$ascii,
+                  period = cc_params$period$`2040s`,
+                  variable = cc_params$variable$Precipitation,
+                  resolution = cc_params$resolution$`5 minutes`))
+#> [1] "http://gisweb.ciat.cgiar.org/ccafs_climate/files/data/ipcc_4ar_ciat/sres_b1/2040s/bccr_bcm2_0/5min/bccr_bcm2_0_sres_b1_2040s_prec_5min_no_tile_asc.zip"
+```
+
+
 ## Fetch files
 
 Note, files are not loaded as they can be very large
@@ -100,7 +122,7 @@ Note, files are not loaded as they can be very large
 
 ```r
 key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
-(res <- cc_data_fetch(key = key))
+(res <- cc_data_fetch(key = key, progress = FALSE))
 #> 
 #> <CCAFS GCM files>
 #>    12 files
@@ -147,7 +169,7 @@ library("raster")
 plot(cc_data_read(res[1:3]))
 ```
 
-![plot of chunk unnamed-chunk-8](inst/img/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png)
 
 
 ## Meta

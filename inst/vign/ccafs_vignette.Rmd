@@ -21,7 +21,8 @@ ccafs introduction
 General Circulation Models (GCM) data. Data is stored in Amazon S3, from
 which we provide functions to fetch data.
 
-Potential users are probably anyone from scientists asking questions about climate change, to scientists or companies projecting crop yields in the future.
+Potential users are probably anyone from scientists asking questions about
+climate change, to scientists or companies projecting crop yields in the future.
 
 ## Install
 
@@ -44,6 +45,57 @@ library("ccafs")
 ```{r echo=FALSE}
 cc_cache_delete_all()
 ```
+
+## Search
+
+Search CCAFS
+
+You can search by the numbers representing each possible value for 
+each parameter. See the `?'ccafs-search'` for help on that.
+
+```{r}
+(res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
+  format = "ascii", period = 5, variable = 2, resolution = 3))
+```
+
+Some saerches, like that above, result in one URL, while others, like that 
+below, result in many URLs.
+
+```{r}
+res <- cc_search(file_set = 12, extent = "global", format = "ascii",
+  period = 4, variable = 1, resolution = 4)
+length(res)
+res[1:5]
+```
+
+One we have some URLs, we can fetch the files at the URLs
+
+One at a time
+
+```{r}
+cc_data_fetch(res[1], progress = FALSE)
+```
+
+Or many at once
+
+```{r}
+lapply(res[1:3], cc_data_fetch, progress = FALSE)
+```
+
+Alternatively, you can use the helper list where you can reference options 
+by name; the downside is that this leads to very verbose code.
+
+```{r}
+(res <- cc_search(file_set = cc_params$file_set$`Delta method IPCC AR4`,
+                  scenario = cc_params$scenario$`SRES B1`,
+                  model = cc_params$model$bccr_bcm2_0,
+                  extent = cc_params$extent$global,
+                  format = cc_params$format$ascii,
+                  period = cc_params$period$`2040s`,
+                  variable = cc_params$variable$Precipitation,
+                  resolution = cc_params$resolution$`5 minutes`))
+```
+
 
 ## List keys
 
@@ -89,13 +141,13 @@ key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
 ```
 
 ```{r eval=FALSE}
-(res <- cc_data_fetch(key = key))
+(res <- cc_data_fetch(key = key, progress = FALSE))
 ```
 
 Using the above set of zips, fetch some data:
 
 ```{r}
-x <- cc_data_fetch(zips[1])
+x <- cc_data_fetch(zips[1], progress = FALSE)
 cc_data_read(x[1])
 ```
 
@@ -109,7 +161,7 @@ you have data cached already.
 You can list cached files
 
 ```{r}
-cc_cache_list()
+cc_cache_list()[1:10]
 ```
 
 See `?cc_cache` for all the cache management functions.
