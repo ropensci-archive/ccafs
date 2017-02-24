@@ -8,7 +8,8 @@ ccafs
 [![Build Status](https://travis-ci.org/ropensci/ccafs.svg?branch=master)](https://travis-ci.org/ropensci/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
 [![codecov](https://codecov.io/gh/ropensci/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/ccafs)
-
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/ccafs)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/ccafs)](https://cran.r-project.org/package=ccafs)
 
 R client for Climate Change, Agriculture, and Food Security (CCAFS)
 General Circulation Models (GCM) data.
@@ -88,7 +89,7 @@ library("ccafs")
 
 ## Search
 
-You can search by the numbers representing each possible value for 
+You can search by the numbers representing each possible value for
 each parameter. See the `?'ccafs-search'` for help on that.
 
 
@@ -98,7 +99,7 @@ each parameter. See the `?'ccafs-search'` for help on that.
 #> [1] "http://gisweb.ciat.cgiar.org/ccafs_climate/files/data/ipcc_4ar_ciat/sres_b1/2040s/bccr_bcm2_0/5min/bccr_bcm2_0_sres_b1_2040s_prec_5min_no_tile_asc.zip"
 ```
 
-Alternatively, you can use the helper list where you can reference options 
+Alternatively, you can use the helper list where you can reference options
 by name; the downside is that this leads to very verbose code.
 
 
@@ -123,11 +124,11 @@ Note, files are not loaded as they can be very large
 ```r
 key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
 (res <- cc_data_fetch(key = key, progress = FALSE))
-#> 
+#>
 #> <CCAFS GCM files>
 #>    12 files
 #>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
-#>    File types (count): 
+#>    File types (count):
 #>      - .asc: 12
 ```
 
@@ -138,26 +139,26 @@ Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
 
 ```r
 cc_data_read(res[1])
-#> class       : RasterLayer 
+#> class       : RasterLayer
 #> dimensions  : 900, 2160, 1944000  (nrow, ncol, ncell)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA 
-#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc 
-#> names       : prec_1 
+#> coord. ref. : NA
+#> data source : /Users/sacmac/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc
+#> names       : prec_1
 #> values      : -2147483648, 2147483647  (min, max)
 ```
 
 
 ```r
 cc_data_read(res[1:2])
-#> class       : RasterStack 
+#> class       : RasterStack
 #> dimensions  : 900, 2160, 1944000, 2  (nrow, ncol, ncell, nlayers)
 #> resolution  : 0.1666667, 0.1666667  (x, y)
 #> extent      : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> coord. ref. : NA 
-#> names       :      prec_1,     prec_10 
-#> min values  : -2147483648, -2147483648 
+#> coord. ref. : NA
+#> names       :      prec_1,     prec_10
+#> min values  : -2147483648, -2147483648
 #> max values  :  2147483647,  2147483647
 ```
 
