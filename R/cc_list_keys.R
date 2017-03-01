@@ -16,7 +16,8 @@
 #' @return A tibble (a data.frame, basically), with the columms:
 #' \itemize{
 #'  \item Key - object key
-#'  \item LastModified - Object creation date or the last modified date, whichever is the latest.
+#'  \item LastModified - Object creation date or the last modified date,
+#'  whichever is the latest.
 #'  \item ETag - "entity tag", used for cache validation
 #'  \item Size - Size of the object, in bytes, divide by 10^6 to get
 #'  mb (megabytes)
