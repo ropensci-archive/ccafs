@@ -16,18 +16,13 @@ General Circulation Models (GCM) data.
 
 ## About CCAFS
 
-CCAFS website: <http://ccafs-climate.org/>
+The CCAFS-Climate data portal (<http://ccafs-climate.org/>) provides global and regional future high-resolution climate datasets that serve as a basis for assessing the climate change impacts and adaptation in a variety of fields including biodiversity, agricultural and livestock production, and ecosystem services and hydrology. CCAFS data can be used by anyone from scientists studying climate change, and how climate impacts various aspects of the earth, to companies projecting crop yields in the future. Search google scholar with `"CCAFS" "GCM"` to see example uses.
 
-CCAFS GCM data for this package comes from Amazon S3
-[root path](http://cgiardata.s3.amazonaws.com). Amazon S3 stands for "Simple
-Storage Service" - it's like a file system, and they give you links to the files
-and metadata around those links.  More about Amazon S3 below.
-
-CCAFS data can be used for studying climate change, and how climate impacts
-various aspects of the earth. Search google scholar with `"CCAFS" "GCM"` to
-see example uses.
+These open-access datasets are hosted by Amazon Web Services. CCAFS GCM data for this package comes from Amazon S3
+[root path](http://cgiardata.s3.amazonaws.com).
 
 As far as I can tell, CCAFS GCM data comes from IPCC data.
+
 
 ## About Amazon S3
 
