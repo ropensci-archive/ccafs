@@ -31,3 +31,4 @@ VignetteBuilder: knitr
 RoxygenNote: 6.0.1
 X-schema.org-keywords: data, climate change, agriculture, gcm, general circulation model, ccafs
 X-schema.org-isPartOf: "https://ropensci.org"
+X-schema.org-applicationCategory: Data Access
