@@ -6,7 +6,7 @@ ccafs
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Build Status](https://travis-ci.org/ropensci/ccafs.svg?branch=master)](https://travis-ci.org/ropensci/ccafs)
-[![Build status](https://ci.appveyor.com/api/projects/status/rd3u4qqmlcloh5j7?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
+[![Build status](https://ci.appveyor.com/api/projects/status/vxvcb11726hwu0e2?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
 [![codecov](https://codecov.io/gh/ropensci/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/ccafs)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/ccafs)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/ccafs)](https://cran.r-project.org/package=ccafs)
