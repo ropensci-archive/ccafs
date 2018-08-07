@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+[![cran checks](https://cranchecks.info/badges/worst/ccafs)](https://cranchecks.info/pkgs/ccafs)
 [![Build Status](https://travis-ci.org/ropensci/ccafs.svg?branch=master)](https://travis-ci.org/ropensci/ccafs)
 [![Build status](https://ci.appveyor.com/api/projects/status/vxvcb11726hwu0e2?svg=true)](https://ci.appveyor.com/project/sckott/ccafs)
 [![codecov](https://codecov.io/gh/ropensci/ccafs/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/ccafs)
