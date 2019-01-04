@@ -6,7 +6,9 @@ test_that("cc_list_keys level works - parsing", {
   aa <- cc_list_keys()
 
   expect_is(aa, "tbl_df")
-  expect_named(aa, c("Key", "LastModified", "ETag", "Size", "StorageClass"))
+  expect_named(aa, 
+    c("Key", "LastModified", "ETag", "Size", 
+      "Owner.ID", "Owner.DisplayName", "StorageClass"))
   expect_is(aa$Key, "character")
   expect_is(aa$ETag, "character")
 })
