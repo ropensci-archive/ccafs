@@ -46,9 +46,9 @@ a file (with a file extension, and has size > 0). Other keys are
 directories.
 }
 \examples{
+\dontrun{
 cc_list_keys(max = 1)
 
-\dontrun{
 cc_list_keys()
 cc_list_keys(max = 10)
 cc_list_keys(prefix = "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/")

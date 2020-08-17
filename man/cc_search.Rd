@@ -52,10 +52,10 @@ Output can be passed to \code{\link{cc_data_fetch}}, and subsequently to
 \code{\link{cc_data_read}}
 }
 \examples{
+\dontrun{
 (res <- cc_search(file_set = 12, extent = "global", format = "ascii",
   period = 4, variable = 1, resolution = 4))
 
-\dontrun{
 res <- cc_search(file_set = 7, extent = "region", format = "ascii",
   period = 9, variable = 5, resolution = 6)
 cc_data_fetch(res[3])
