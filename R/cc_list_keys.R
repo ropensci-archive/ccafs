@@ -45,5 +45,5 @@ cc_list_keys <- function(prefix = NULL, delimiter = NULL, max = 1000,
   tmp <- parsxml(cc_GET(ccafs_base(), query = args, ...))
   df <- data.table::setDF(data.table::rbindlist(tmp, fill = TRUE,
                                                 use.names = TRUE))
-  tibble::as_data_frame(df)
+  tibble::as_tibble(df)
 }
