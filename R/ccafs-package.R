@@ -76,7 +76,7 @@
 #' @section Vignette:
 #' \pkg{ccafs} has the following vignettes:
 #' \itemize{
-#'  \item \code{vignette("ccafs_vignette", package = "ccafs")}
+#'  \item \code{vignette("ccafs", package = "ccafs")}
 #'  \item \code{vignette("amazon_s3_keys", package = "ccafs")}
 #' }
 NULL

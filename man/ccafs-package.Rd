@@ -85,7 +85,7 @@ Get a citation for this package like \code{citation(package = 'ccafs')}
 
 \pkg{ccafs} has the following vignettes:
 \itemize{
- \item \code{vignette("ccafs_vignette", package = "ccafs")}
+ \item \code{vignette("ccafs", package = "ccafs")}
  \item \code{vignette("amazon_s3_keys", package = "ccafs")}
 }
 }
