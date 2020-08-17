@@ -1,8 +1,13 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{ccafs introduction}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: ccafs introduction
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Cccafs introduction}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
@@ -10,12 +15,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  fig.path = "img/"
+  fig.path = "../man/figures/"
 )
 ```
-
-ccafs introduction
-==================
 
 `ccafs` provides access to Climate Change, Agriculture, and Food Security (CCAFS)
 General Circulation Models (GCM) data. Data is stored in Amazon S3, from
@@ -35,7 +37,7 @@ install.packages("ccafs")
 Dev version
 
 ```{r eval=FALSE}
-devtools::install_github("ropensci/ccafs")
+remotes::install_github("ropensci/ccafs")
 ```
 
 ```{r}

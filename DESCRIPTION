@@ -4,7 +4,7 @@ Title: Client for 'CCAFS' 'GCM' Data
 Description: Client for Climate Change, Agriculture, and Food Security ('CCAFS')
     General Circulation Models ('GCM') data. Data is stored in Amazon 'S3', from
     which we provide functions to fetch data.
-Version: 0.1.0.9110
+Version: 0.1.1.92
 Authors@R: c(
     person("Scott", "Chamberlain",
         role = c("aut", "cre"),
@@ -13,6 +13,8 @@ Authors@R: c(
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/ccafs, https://github.com/ropensci/ccafs
 BugReports: https://github.com/ropensci/ccafs/issues
+Encoding: UTF-8
+Language: en-US
 Imports:
     rappdirs (>= 0.3.1),
     crul (>= 0.2.0),
@@ -23,12 +25,11 @@ Imports:
     jsonlite (>= 1.2),
     data.table (>= 1.9.6)
 Suggests:
-    roxygen2 (>= 5.0.1),
     testthat,
-    covr,
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
 X-schema.org-keywords: data, climate change, agriculture, gcm, general circulation model, ccafs
 X-schema.org-isPartOf: "https://ropensci.org"
 X-schema.org-applicationCategory: Data Access

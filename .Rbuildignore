@@ -10,3 +10,4 @@ man-roxygen
 docs
 .github
 ^codemeta\.json$
+^Makefile$

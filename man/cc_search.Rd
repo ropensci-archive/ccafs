@@ -4,9 +4,17 @@
 \alias{cc_search}
 \title{Search CCAFS data}
 \usage{
-cc_search(file_set = NULL, scenario = NULL, model = NULL, extent = NULL,
-  format = NULL, period = NULL, variable = NULL, resolution = NULL,
-  tile = NULL)
+cc_search(
+  file_set = NULL,
+  scenario = NULL,
+  model = NULL,
+  extent = NULL,
+  format = NULL,
+  period = NULL,
+  variable = NULL,
+  resolution = NULL,
+  tile = NULL
+)
 }
 \arguments{
 \item{file_set}{(integer) a file set, 2 through 12}

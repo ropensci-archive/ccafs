@@ -1,13 +1,13 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{CCAFS Amazon S3 Keys}
-%\VignetteEncoding{UTF-8}
--->
-
-
-
-CCAFS Amazon S3 Keys
-====================
+---
+title: CCAFS Amazon S3 Keys
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{CCAFS Amazon S3 Keys}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 Keys used in this package are a bit opaque. To make it a bit more clear how
 keys link to the CCAFS web interface, the following is an example run through 

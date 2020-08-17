@@ -5,7 +5,9 @@
 \alias{ccafs-search}
 \alias{cc_params}
 \title{cc_search options}
-\format{An object of class \code{list} of length 9.}
+\format{
+An object of class \code{list} of length 9.
+}
 \usage{
 cc_params
 }

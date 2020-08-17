@@ -4,8 +4,7 @@
 \alias{cc_list_keys}
 \title{List CCAFS keys}
 \usage{
-cc_list_keys(prefix = NULL, delimiter = NULL, max = 1000, marker = NULL,
-  ...)
+cc_list_keys(prefix = NULL, delimiter = NULL, max = 1000, marker = NULL, ...)
 }
 \arguments{
 \item{prefix}{(character) string that limits the response to keys that begin
