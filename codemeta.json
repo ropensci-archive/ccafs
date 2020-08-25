@@ -171,7 +171,7 @@
   "releaseNotes": "https://github.com/ropensci/ccafs/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/ccafs/blob/master/README.md",
   "fileSize": "0KB",
-  "relatedLink": "https://docs.ropensci.org/ccafs",
+  "relatedLink": ["https://docs.ropensci.org/ccafs", "https://docs.ropensci.org/ccafs/"],
   "contributor": {},
   "copyrightHolder": {},
   "funder": {},
