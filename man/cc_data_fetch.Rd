@@ -4,7 +4,7 @@
 \alias{cc_data_fetch}
 \title{Download CCAFS data}
 \usage{
-cc_data_fetch(key, overwrite = FALSE, progress = TRUE, ...)
+cc_data_fetch(key, overwrite = FALSE, ...)
 }
 \arguments{
 \item{key}{(character) a character string specifying a S3 key
@@ -14,9 +14,6 @@ keys to break across lines as keys can be very long}
 
 \item{overwrite}{(logical) Whether to overwrite files if they already
 exist on your machine. Default: \code{FALSE}}
-
-\item{progress}{(logical) Whether to print download progress.
-Default: \code{TRUE}}
 
 \item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
@@ -61,11 +58,5 @@ cc_data_read(x)
 library(raster)
 plot(cc_data_read(x[1]))
 plot(cc_data_read(x[1:3]))
-
-# show progress
-cc_cache_delete_all()
-cc_data_fetch(key = key, progress = TRUE)
-cc_cache_delete_all()
-cc_data_fetch(key = key, progress = FALSE)
 }
 }

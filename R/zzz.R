@@ -25,7 +25,7 @@ cc_GET <- function(url, ...) {
   x$parse("UTF-8")
 }
 
-cc_GETw <- function(url, path, overwrite = TRUE, progress = TRUE, ...) {
+cc_GETw <- function(url, path, overwrite = TRUE, ...) {
   cli <- crul::HttpClient$new(
     url = url,
     opts = list(useragent = paste0("ccafs/", utils::packageVersion("ccafs")))
@@ -35,10 +35,7 @@ cc_GETw <- function(url, path, overwrite = TRUE, progress = TRUE, ...) {
       stop("file exists and ovewrite is not TRUE", call. = FALSE)
     }
   }
-  x <- do.call(cli$get, as.list(c(
-    disk = path,
-    if (progress) httr::progress()$options,
-    ...)))
+  x <- do.call(cli$get, as.list(c(disk = path, ...)))
   if (x$status_code > 201) {
     unlink(path)
     stop(x$status_http()$message, call. = FALSE)

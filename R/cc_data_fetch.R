@@ -7,8 +7,6 @@
 #' keys to break across lines as keys can be very long
 #' @param overwrite (logical) Whether to overwrite files if they already
 #' exist on your machine. Default: \code{FALSE}
-#' @param progress (logical) Whether to print download progress.
-#' Default: \code{TRUE}
 #' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #'
 #' @details Note that data is not read into R as data can be very large.
@@ -46,16 +44,9 @@
 #' library(raster)
 #' plot(cc_data_read(x[1]))
 #' plot(cc_data_read(x[1:3]))
-#'
-#' # show progress
-#' cc_cache_delete_all()
-#' cc_data_fetch(key = key, progress = TRUE)
-#' cc_cache_delete_all()
-#' cc_data_fetch(key = key, progress = FALSE)
 #' }
-cc_data_fetch <- function(key, overwrite = FALSE, progress = TRUE, ...) {
-  res <- cache_data(key, cache = TRUE, overwrite = overwrite,
-                    progress = progress, ...)
+cc_data_fetch <- function(key, overwrite = FALSE, ...) {
+  res <- cache_data(key, cache = TRUE, overwrite = overwrite, ...)
   structure(res, class = "ccafs_files")
 }
 
