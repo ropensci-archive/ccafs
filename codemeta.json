@@ -1,20 +1,22 @@
 {
-  "@context": ["https://doi.org/doi:10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/doi:10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "ccafs",
   "description": "Client for Climate Change, Agriculture, and Food Security ('CCAFS')\n    General Circulation Models ('GCM') data. Data is stored in Amazon 'S3', from\n    which we provide functions to fetch data.",
   "name": "ccafs: Client for 'CCAFS' 'GCM' Data",
-  "codeRepository": "https://github.com/ropensci/ccafs.git",
+  "codeRepository": "https://github.com/ropensci/ccafs",
   "issueTracker": "https://github.com/ropensci/ccafs/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.0.9110",
+  "version": "0.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.3.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.3.2 (2016-10-31)",
+  "runtimePlatform": "R version 4.0.2 Patched (2020-06-30 r78761)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -30,26 +32,16 @@
       "@id": "orcid.org/0000-0003-1444-9135"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Scott",
-    "familyName": "Chamberlain",
-    "email": "myrmecocystus@gmail.com",
-    "@id": "orcid.org/0000-0003-1444-9135"
-  },
-  "softwareSuggestions": [
+  "maintainer": [
     {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": "5.0.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
+      "@type": "Person",
+      "givenName": "Scott",
+      "familyName": "Chamberlain",
+      "email": "myrmecocystus@gmail.com",
+      "@id": "orcid.org/0000-0003-1444-9135"
+    }
+  ],
+  "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
@@ -57,20 +49,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     },
     {
       "@type": "SoftwareApplication",
@@ -79,9 +61,22 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
   "softwareRequirements": [
@@ -89,102 +84,101 @@
       "@type": "SoftwareApplication",
       "identifier": "rappdirs",
       "name": "rappdirs",
-      "version": "0.3.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rappdirs"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": "0.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=crul"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "raster",
       "name": "raster",
-      "version": "2.5-8",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=raster"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
-      "version": "1.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "xml2",
       "name": "xml2",
-      "version": "1.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=xml2"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
-      "version": "1.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
-      "version": "    data.1.9.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
     }
   ],
   "isPartOf": "\"https://ropensci.org\"",
-  "keywords": ["data", "climatechange", "agriculture", "gcm", "generalcirculationmodel", "ccafs"],
-  "contIntegration": "https://travis-ci.org/ropensci/ccafs",
-  "releaseNotes": "https://github.com/ropensci/ccafs.git/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/ccafs.git/blob/master/README.md",
-  "fileSize": "893.556KB"
+  "keywords": ["data", "climatechange", "agriculture", "gcm", "generalcirculationmodel", "ccafs", "climate-data", "climate", "r", "rstats", "r-package", "peer-reviewed"],
+  "contIntegration": ["https://travis-ci.org/ropensci/ccafs", "https://ci.appveyor.com/project/sckott/ccafs", "https://codecov.io/gh/ropensci/ccafs"],
+  "releaseNotes": "https://github.com/ropensci/ccafs/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/ccafs/blob/master/README.md",
+  "fileSize": "0KB",
+  "relatedLink": "https://docs.ropensci.org/ccafs",
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {},
+  "applicationCategory": "DataAccess",
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/82",
+    "provider": "https://ropensci.org"
+  }
 }

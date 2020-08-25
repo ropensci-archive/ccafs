@@ -10,7 +10,7 @@
 
 ## Reverse dependencies
 
-This version xxxx.
+This version now uses markdown for package documentation and drops a package from Imports.
 
 Thanks!
 Scott Chamberlain
