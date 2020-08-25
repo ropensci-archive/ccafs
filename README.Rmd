@@ -26,10 +26,10 @@ General Circulation Models (GCM) data.
 
 ## About CCAFS
 
-The CCAFS-Climate data portal (<http://ccafs-climate.org/>) provides global and regional future high-resolution climate datasets that serve as a basis for assessing the climate change impacts and adaptation in a variety of fields including biodiversity, agricultural and livestock production, and ecosystem services and hydrology. CCAFS data can be used by anyone from scientists studying climate change, and how climate impacts various aspects of the earth, to companies projecting crop yields in the future. Search google scholar with `"CCAFS" "GCM"` to see example uses.
+The CCAFS-Climate data portal (http://ccafs-climate.org/) provides global and regional future high-resolution climate datasets that serve as a basis for assessing the climate change impacts and adaptation in a variety of fields including biodiversity, agricultural and livestock production, and ecosystem services and hydrology. CCAFS data can be used by anyone from scientists studying climate change, and how climate impacts various aspects of the earth, to companies projecting crop yields in the future. Search google scholar with `"CCAFS" "GCM"` to see example uses.
 
 These open-access datasets are hosted by Amazon Web Services. CCAFS GCM data for this package comes from Amazon S3
-[root path](http://cgiardata.s3.amazonaws.com).
+(root path: http://cgiardata.s3.amazonaws.com)
 
 As far as I can tell, CCAFS GCM data comes from IPCC data.
 
@@ -43,11 +43,11 @@ one bucket. Within the CCAFS bucket on S3 are a series of nested folders.
 To get to various files we need to navigate down the tree of folders.
 Keys are file paths with all their parent folders, e.g., "/foo/bar/1/2".
 Unfortunately, there's no meaningful search of the CCCAFS data as they
-have on their website <http://ccafs-climate.org/>. However, you can
+have on their website http://ccafs-climate.org/. However, you can
 set a prefix for a search of these keys, e.g., "/foo/bar" for the key
 above.
 
-Check out <https://aws.amazon.com/s3/> for more info.
+Check out https://aws.amazon.com/s3/ for more info.
 
 ## About the package
 
@@ -55,12 +55,12 @@ Check out <https://aws.amazon.com/s3/> for more info.
 Services S3 data.
 
 The `ccafs` data has access to is the "Spatial Downscaling" data that you see
-on the <http://ccafs-climate.org/data/> page. The other data sets are not
+on the http://ccafs-climate.org/data/ page. The other data sets are not
 open.
 
 ## Citations
 
-Cite CCAFS data following their guidelines at <http://ccafs-climate.org/about/>
+Cite CCAFS data following their guidelines at http://ccafs-climate.org/about/
 
 Get a citation for this package like `citation(package = 'ccafs')` after
 installing the package.
