@@ -43,13 +43,13 @@ character strings, one or more urls
 Search CCAFS data
 }
 \details{
-See \code{\link{ccafs-search}} for details on parameters.
+See \link{ccafs-search} for details on parameters.
 
 note that some URLs will be for Amazon S3 and others will have different
 base URLS (e.g., http://gisweb.ciat.cgiar.org)
 
-Output can be passed to \code{\link{cc_data_fetch}}, and subsequently to
-\code{\link{cc_data_read}}
+Output can be passed to \code{\link[=cc_data_fetch]{cc_data_fetch()}}, and subsequently to
+\code{\link[=cc_data_read]{cc_data_read()}}
 }
 \examples{
 \dontrun{

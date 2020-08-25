@@ -19,14 +19,14 @@ Amazon S3, from which we provide functions to fetch data.
 R client for Climate Change, Agriculture, and Food Security (CCAFS)
 General Circulation Models (GCM) data.
 
-CCAFS website: <http://ccafs-climate.org/>
+CCAFS website: http://ccafs-climate.org/
 
 CCAFS GCM data for this package comes from Amazon S3
-\url{http://cgiardata.s3.amazonaws.com}. More about Amazon S3 below.
+http://cgiardata.s3.amazonaws.com More about Amazon S3 below.
 
 CCAFS data can be used for studying climate change, and how climate
 impacts various aspects of the earth. Search google scholar with
-`"CCAFS" "GCM"` to see example uses.
+\verb{"CCAFS" "GCM"} to see example uses.
 
 As far as I can tell, CCAFS GCM data comes from IPCC data.
 }
@@ -41,11 +41,11 @@ one bucket. Within the CCAFS bucket on S3 are a series of nested folders.
 To get to various files we need to navigate down the tree of folders.
 Keys are file paths with all their parent folders, e.g., "/foo/bar/1/2".
 Unfortunately, there's no meaningful search of the CCCAFS data as they
-have on their website \url{http://ccafs-climate.org/}. However, you can
+have on their website http://ccafs-climate.org/ . However, you can
 set a prefix for a search of these keys, e.g., "/foo/bar" for the key
 above.
 
-Check out \url{https://aws.amazon.com/s3/} for more info.
+Check out https://aws.amazon.com/s3/ for more info.
 }
 
 \section{About the package}{
@@ -54,7 +54,7 @@ Check out \url{https://aws.amazon.com/s3/} for more info.
 Services S3 data.
 
 The \pkg{ccafs} data has access to is the "Spatial Downscaling" data that
-you see on the \url{http://ccafs-climate.org/data/} page. The other data
+you see on the http://ccafs-climate.org/data/ page. The other data
 sets are not open.
 
 Currently, we don't provide a way to search for what data is available.
@@ -68,7 +68,7 @@ solution.
 
 \section{raster}{
 
-The main useful output are `raster` package objects of class
+The main useful output are \code{raster} package objects of class
 \code{RasterLayer} or \code{RasterBrick} - so in general have \code{raster}
 loaded in your session to maximize happiness.
 }
@@ -76,7 +76,7 @@ loaded in your session to maximize happiness.
 \section{Citations}{
 
 Cite CCAFS data following their guidelines at
-\url{http://ccafs-climate.org/about/}
+http://ccafs-climate.org/about/
 
 Get a citation for this package like \code{citation(package = 'ccafs')}
 }
@@ -85,8 +85,8 @@ Get a citation for this package like \code{citation(package = 'ccafs')}
 
 \pkg{ccafs} has the following vignettes:
 \itemize{
- \item \code{vignette("ccafs", package = "ccafs")}
- \item \code{vignette("amazon_s3_keys", package = "ccafs")}
+\item \code{vignette("ccafs", package = "ccafs")}
+\item \code{vignette("amazon_s3_keys", package = "ccafs")}
 }
 }
 

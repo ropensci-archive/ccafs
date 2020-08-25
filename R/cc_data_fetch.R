@@ -2,22 +2,22 @@
 #'
 #' @export
 #' @param key (character) a character string specifying a S3 key
-#' or a URL (the output from a call to \code{\link{cc_search}}. the key
+#' or a URL (the output from a call to [cc_search()]. the key
 #' can have spaces and newlines, which are removed internally - this allows
 #' keys to break across lines as keys can be very long
 #' @param overwrite (logical) Whether to overwrite files if they already
-#' exist on your machine. Default: \code{FALSE}
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' exist on your machine. Default: `FALSE`
+#' @param ... Curl options passed on to [crul::verb-GET]
 #'
 #' @details Note that data is not read into R as data can be very large.
-#' See \code{\link{cc_data_read}}.
+#' See [cc_data_read()]
 #'
-#' Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
+#' Look in `rappdirs::user_cache_dir("ccafs")` for what files are
 #' cached and to delete any.
 #'
 #' Note that we've made it so that you can index into the return object,
 #' getting either one or many results and the S3 class will be retained,
-#' so that you can pass the result down to \code{\link{cc_data_read}}.
+#' so that you can pass the result down to [cc_data_read()]
 #'
 #' @return A character vector of full file paths. A print method makes a tidy
 #' return object in an S3 class.

@@ -8,14 +8,14 @@ cc_data_fetch(key, overwrite = FALSE, ...)
 }
 \arguments{
 \item{key}{(character) a character string specifying a S3 key
-or a URL (the output from a call to \code{\link{cc_search}}. the key
+or a URL (the output from a call to \code{\link[=cc_search]{cc_search()}}. the key
 can have spaces and newlines, which are removed internally - this allows
 keys to break across lines as keys can be very long}
 
 \item{overwrite}{(logical) Whether to overwrite files if they already
 exist on your machine. Default: \code{FALSE}}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A character vector of full file paths. A print method makes a tidy
@@ -26,14 +26,14 @@ Download CCAFS data
 }
 \details{
 Note that data is not read into R as data can be very large.
-See \code{\link{cc_data_read}}.
+See \code{\link[=cc_data_read]{cc_data_read()}}
 
 Look in \code{rappdirs::user_cache_dir("ccafs")} for what files are
 cached and to delete any.
 
 Note that we've made it so that you can index into the return object,
 getting either one or many results and the S3 class will be retained,
-so that you can pass the result down to \code{\link{cc_data_read}}.
+so that you can pass the result down to \code{\link[=cc_data_read]{cc_data_read()}}
 }
 \examples{
 \dontrun{

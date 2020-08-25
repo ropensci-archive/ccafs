@@ -8,7 +8,7 @@ cc_data_read(x, unreadable = "filter")
 }
 \arguments{
 \item{x}{A \code{ccafs_files} object, the output from a call to
-\code{\link{cc_data_fetch}}}
+\code{\link[=cc_data_fetch]{cc_data_fetch()}}}
 
 \item{unreadable}{(character) what to do when unreadable files are passed in.
 default is to filter them out and proceed ("filter") - alternatively,
@@ -25,7 +25,7 @@ Read CCAFS data
 Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
 are cached and to delete any.
 
-\code{\link{cc_data_fetch}} downloads data to your machine, and this
+\code{\link[=cc_data_fetch]{cc_data_fetch()}} downloads data to your machine, and this
 function reads the data into your R session.
 
 For more control over vizualizations of raster data, check out the

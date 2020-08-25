@@ -12,10 +12,10 @@
 #' R client for Climate Change, Agriculture, and Food Security (CCAFS)
 #' General Circulation Models (GCM) data.
 #'
-#' CCAFS website: <http://ccafs-climate.org/>
+#' CCAFS website: http://ccafs-climate.org/
 #'
 #' CCAFS GCM data for this package comes from Amazon S3
-#' \url{http://cgiardata.s3.amazonaws.com}. More about Amazon S3 below.
+#' http://cgiardata.s3.amazonaws.com More about Amazon S3 below.
 #'
 #' CCAFS data can be used for studying climate change, and how climate
 #' impacts various aspects of the earth. Search google scholar with
@@ -32,18 +32,18 @@
 #' To get to various files we need to navigate down the tree of folders.
 #' Keys are file paths with all their parent folders, e.g., "/foo/bar/1/2".
 #' Unfortunately, there's no meaningful search of the CCCAFS data as they
-#' have on their website \url{http://ccafs-climate.org/}. However, you can
+#' have on their website http://ccafs-climate.org/ . However, you can
 #' set a prefix for a search of these keys, e.g., "/foo/bar" for the key
 #' above.
 #'
-#' Check out \url{https://aws.amazon.com/s3/} for more info.
+#' Check out https://aws.amazon.com/s3/ for more info.
 #'
 #' @section About the package:
 #' \pkg{ccafs} is a client to work with the data CCAFS provides via Amazon Web
 #' Services S3 data.
 #'
 #' The \pkg{ccafs} data has access to is the "Spatial Downscaling" data that
-#' you see on the \url{http://ccafs-climate.org/data/} page. The other data
+#' you see on the http://ccafs-climate.org/data/ page. The other data
 #' sets are not open.
 #'
 #' Currently, we don't provide a way to search for what data is available.
@@ -56,14 +56,14 @@
 #'
 #' @section raster:
 #' The main useful output are `raster` package objects of class
-#' \code{RasterLayer} or \code{RasterBrick} - so in general have \code{raster}
+#' `RasterLayer` or `RasterBrick` - so in general have `raster`
 #' loaded in your session to maximize happiness.
 #'
 #' @section Citations:
 #' Cite CCAFS data following their guidelines at
-#' \url{http://ccafs-climate.org/about/}
+#' http://ccafs-climate.org/about/
 #'
-#' Get a citation for this package like \code{citation(package = 'ccafs')}
+#' Get a citation for this package like `citation(package = 'ccafs')`
 #'
 #' @importFrom rappdirs user_cache_dir
 #' @importFrom raster raster stack
@@ -75,8 +75,8 @@
 #'
 #' @section Vignette:
 #' \pkg{ccafs} has the following vignettes:
-#' \itemize{
-#'  \item \code{vignette("ccafs", package = "ccafs")}
-#'  \item \code{vignette("amazon_s3_keys", package = "ccafs")}
-#' }
+#' 
+#' - `vignette("ccafs", package = "ccafs")`
+#' - `vignette("amazon_s3_keys", package = "ccafs")`
+#' 
 NULL

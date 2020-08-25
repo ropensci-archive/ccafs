@@ -22,18 +22,18 @@ for more detail.}
 listing objects in a bucket. Amazon S3 returns object keys in alphabetical
 order, starting with key after the marker in order.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 A tibble (a data.frame, basically), with the columms:
 \itemize{
- \item Key - object key
- \item LastModified - Object creation date or the last modified date,
- whichever is the latest.
- \item ETag - "entity tag", used for cache validation
- \item Size - Size of the object, in bytes, divide by 10^6 to get
- mb (megabytes)
- \item StorageClass - ignore, just useful for CCAFS maintainers
+\item Key - object key
+\item LastModified - Object creation date or the last modified date,
+whichever is the latest.
+\item ETag - "entity tag", used for cache validation
+\item Size - Size of the object, in bytes, divide by 10^6 to get
+mb (megabytes)
+\item StorageClass - ignore, just useful for CCAFS maintainers
 }
 }
 \description{

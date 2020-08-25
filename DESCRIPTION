@@ -15,6 +15,7 @@ URL: https://docs.ropensci.org/ccafs, https://github.com/ropensci/ccafs
 BugReports: https://github.com/ropensci/ccafs/issues
 Encoding: UTF-8
 Language: en-US
+Roxygen: list(markdown = TRUE)
 Imports:
     rappdirs,
     crul,

@@ -1,21 +1,21 @@
 #' Read CCAFS data
 #'
 #' @export
-#' @param x A \code{ccafs_files} object, the output from a call to
-#' \code{\link{cc_data_fetch}}
+#' @param x A `ccafs_files` object, the output from a call to
+#' [cc_data_fetch()]
 #' @param unreadable (character) what to do when unreadable files are passed in.
 #' default is to filter them out and proceed ("filter") - alternatively,
 #' you can choose "stop", in which case we'll stop with a message.
-#' @return \code{RasterLayer} or \code{RasterStack} class object. See their
-#' help files in \code{raster} package documentation.
-#' @details Look in \code{rappdirs::user_cache_dir("ccafs")} for what files
+#' @return `RasterLayer` or `RasterStack` class object. See their
+#' help files in `raster` package documentation.
+#' @details Look in `rappdirs::user_cache_dir("ccafs")` for what files
 #' are cached and to delete any.
 #'
-#' \code{\link{cc_data_fetch}} downloads data to your machine, and this
+#' [cc_data_fetch()] downloads data to your machine, and this
 #' function reads the data into your R session.
 #'
 #' For more control over vizualizations of raster data, check out the
-#' \code{rasterVis} package (https://CRAN.R-project.org/package=rasterVis)
+#' `rasterVis` package (https://CRAN.R-project.org/package=rasterVis)
 #' @examples \dontrun{
 #' key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/
 #'  2030s/bcc_csm1_1_m/10min/

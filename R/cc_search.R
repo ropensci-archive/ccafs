@@ -13,13 +13,13 @@
 #' one of A1-6, B1-6, or C1-6. See web interface for where those are located.
 #'
 #' @return character strings, one or more urls
-#' @details See \code{\link{ccafs-search}} for details on parameters.
+#' @details See [ccafs-search] for details on parameters.
 #'
 #' note that some URLs will be for Amazon S3 and others will have different
 #' base URLS (e.g., http://gisweb.ciat.cgiar.org)
 #'
-#' Output can be passed to \code{\link{cc_data_fetch}}, and subsequently to
-#' \code{\link{cc_data_read}}
+#' Output can be passed to [cc_data_fetch()], and subsequently to
+#' [cc_data_read()]
 #'
 #' @examples \dontrun{
 #' (res <- cc_search(file_set = 12, extent = "global", format = "ascii",
