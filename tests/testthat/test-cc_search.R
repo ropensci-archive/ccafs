@@ -12,21 +12,8 @@ test_that("cc_search works - eg1", {
   expect_match(aa, "ipcc_4ar")
 })
 
-# test_that("cc_search works - eg2", {
-#   skip_on_cran()
-#
-#   aa <-
-#
-#   expect_is(aa, "character")
-#   expect_match(aa, "gisweb.ciat.cgiar.org")
-#   expect_match(aa, "ccafs")
-#   expect_match(aa, "ipcc_4ar")
-# })
-
 test_that("cc_search - fails well", {
   skip_on_cran()
-
-  #expect_error(cc_search(), "argument \"key\" is missing")
 
   # deprecated file
   expect_error(
