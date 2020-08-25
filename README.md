@@ -16,6 +16,8 @@ ccafs
 R client for Climate Change, Agriculture, and Food Security (CCAFS)
 General Circulation Models (GCM) data.
 
+Package Docs: https://docs.ropensci.org/ccafs/
+
 ## About CCAFS
 
 The CCAFS-Climate data portal (http://ccafs-climate.org/) provides global and regional future high-resolution climate datasets that serve as a basis for assessing the climate change impacts and adaptation in a variety of fields including biodiversity, agricultural and livestock production, and ecosystem services and hydrology. CCAFS data can be used by anyone from scientists studying climate change, and how climate impacts various aspects of the earth, to companies projecting crop yields in the future. Search google scholar with `"CCAFS" "GCM"` to see example uses.
@@ -83,91 +85,9 @@ remotes::install_github("ropensci/ccafs")
 library("ccafs")
 ```
 
-## Search
+## Documentation
 
-You can search by the numbers representing each possible value for
-each parameter. See the `?'ccafs-search'` for help on that.
-
-
-```r
-(res <- cc_search(file_set = 4, scenario = 6, model = 2, extent = "global",
-  format = "ascii", period = 5, variable = 2, resolution = 3))
-#> [1] "http://gisweb.ciat.cgiar.org/ccafs_climate/files/data/ipcc_4ar_ciat/sres_b1/2040s/bccr_bcm2_0/5min/bccr_bcm2_0_sres_b1_2040s_prec_5min_no_tile_asc.zip"
-```
-
-Alternatively, you can use the helper list where you can reference options
-by name; the downside is that this leads to very verbose code.
-
-
-```r
-(res <- cc_search(file_set = cc_params$file_set$`Delta method IPCC AR4`,
-                  scenario = cc_params$scenario$`SRES B1`,
-                  model = cc_params$model$bccr_bcm2_0,
-                  extent = cc_params$extent$global,
-                  format = cc_params$format$ascii,
-                  period = cc_params$period$`2040s`,
-                  variable = cc_params$variable$Precipitation,
-                  resolution = cc_params$resolution$`5 minutes`))
-#> [1] "http://gisweb.ciat.cgiar.org/ccafs_climate/files/data/ipcc_4ar_ciat/sres_b1/2040s/bccr_bcm2_0/5min/bccr_bcm2_0_sres_b1_2040s_prec_5min_no_tile_asc.zip"
-```
-
-
-## Fetch files
-
-Note, files are not loaded as they can be very large
-
-
-```r
-key <- "ccafs/ccafs-climate/data/ipcc_5ar_ciat_downscaled/rcp2_6/2030s/bcc_csm1_1_m/10min/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc.zip"
-(res <- cc_data_fetch(key = key))
-#> 
-#> <CCAFS GCM files>
-#>    12 files
-#>    Base dir: /bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc
-#>    File types (count): 
-#>      - .asc: 12
-```
-
-## Load data
-
-Can load in a single file (gives `RasterLayer`), or many (gives `RasterBrick`)
-
-
-```r
-cc_data_read(res[1])
-#> class      : RasterLayer 
-#> dimensions : 900, 2160, 1944000  (nrow, ncol, ncell)
-#> resolution : 0.1666667, 0.1666667  (x, y)
-#> extent     : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> crs        : NA 
-#> source     : /Users/sckott/Library/Caches/ccafs/bcc_csm1_1_m_rcp2_6_2030s_prec_10min_r1i1p1_no_tile_asc/prec_1.asc 
-#> names      : prec_1 
-#> values     : -2147483648, 2147483647  (min, max)
-```
-
-
-```r
-cc_data_read(res[1:2])
-#> class      : RasterStack 
-#> dimensions : 900, 2160, 1944000, 2  (nrow, ncol, ncell, nlayers)
-#> resolution : 0.1666667, 0.1666667  (x, y)
-#> extent     : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
-#> crs        : NA 
-#> names      :      prec_1,     prec_10 
-#> min values : -2147483648, -2147483648 
-#> max values :  2147483647,  2147483647
-```
-
-## Plot
-
-
-```r
-library("raster")
-plot(cc_data_read(res[1:3]))
-```
-
-![plot of chunk unnamed-chunk-10](man/figures/unnamed-chunk-10-1.png)
-
+Package Docs: https://docs.ropensci.org/ccafs/
 
 ## Meta
 
